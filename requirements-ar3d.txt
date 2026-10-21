@@ -1,0 +1,4 @@
+-r requirements.txt
+trimesh>=4.12,<5
+Pillow>=10,<13
+moderngl>=5.10,<6

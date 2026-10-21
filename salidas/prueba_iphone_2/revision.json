@@ -1,0 +1,33 @@
+{
+  "tipo": "revision_segunda_sesion_fisica",
+  "fuente": "/home/hhouse/ws/vis/tp5/salidas/prueba_iphone_2/reporte.json",
+  "cuadros": 81,
+  "duracion_observada_s": 7.924698293001711,
+  "validos": 60,
+  "perdidos": 21,
+  "porcentaje_validos": 74.07407407407408,
+  "recuperaciones": 12,
+  "reproyeccion_p50_p95_max_px": [
+    0.11564017810796562,
+    0.2701529610703579,
+    0.48804806595795547
+  ],
+  "mayor_cambio_entre_poses_adyacentes": {
+    "desde": 67,
+    "hasta": 68,
+    "intervalo_s": 0.09984281799916062,
+    "desplazamiento_estimado_mm": 10.899989031389882,
+    "rotacion_estimada_grados": 1.2831315256273037
+  },
+  "poses_reproducidas_exactamente_desde_esquinas": true,
+  "diagnostico": "No se repite el salto grande anterior. Las interrupciones de esta sesión ocurren por ausencia de detección de ArUco, no por rechazo de PnP.",
+  "encuadre": "Marcador de unos75–79px por lado, cerca del borde inferior; margen mínimo observado5,92px.",
+  "comparacion_rescate": {
+    "video_comprimido_base_poses": 62,
+    "video_comprimido_con_rescate_poses": 67,
+    "base_mayor_cambio_mm": 11.028398180025345,
+    "rescate_mayor_cambio_mm": 64.6934797254931,
+    "decision": "Experimental desactivado: recuperar más cuadros degradó la continuidad de la pose."
+  },
+  "limite": "Sin verdad externa no se certifica precisión en mm. Las cifras del replay MJPEG no son equivalentes a las de la captura original."
+}

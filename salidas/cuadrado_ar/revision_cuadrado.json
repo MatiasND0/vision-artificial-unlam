@@ -1,0 +1,35 @@
+{
+  "fuente": "/home/hhouse/ws/vis/tp5/salidas/prueba_iphone_2/camara_cruda.avi",
+  "metodo": "Redeteccion del video MJPEG y PnP actuales; render con K/dist reales",
+  "cuadros_reprocesados": 81,
+  "cuadrado_visible_con_pose_actual": 62,
+  "cuadrado_oculto_sin_pose_actual": 19,
+  "vertices_mundo_mm": [
+    [
+      -20.0,
+      20.0,
+      20.0
+    ],
+    [
+      20.0,
+      20.0,
+      20.0
+    ],
+    [
+      20.0,
+      -20.0,
+      20.0
+    ],
+    [
+      -20.0,
+      -20.0,
+      20.0
+    ]
+  ],
+  "recorrido_centro_proyectado_px": [
+    175.61954334379072,
+    12.151457019936288
+  ],
+  "comprobacion": "Cambio de imagen dentro del cuadrado con pose; sin overlay fuera del panel al perderla",
+  "limite": "Reproyeccion sobre una grabacion anterior; no certifica precision fisica ni es una nueva prueba en vivo"
+}

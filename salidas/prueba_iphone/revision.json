@@ -1,0 +1,29 @@
+{
+  "fuente": "/home/hhouse/ws/vis/tp5/salidas/prueba_iphone/reporte.json",
+  "tipo": "revision_primera_sesion_fisica",
+  "montaje_confirmado_por_usuario": "iPhone fijo; notebook/cámara en movimiento",
+  "cuadros": 200,
+  "sin_localizacion_inicial": 100,
+  "cuadros_desde_primera_deteccion": 100,
+  "localizados": 79,
+  "porcentaje_localizados_desde_primera_deteccion": 79.0,
+  "perdidas_despues_de_adquirir": 10,
+  "recuperaciones_reales": 10,
+  "error_reproyeccion_mediana_p95_max_px": [
+    0.06671920723501862,
+    0.2214356693639287,
+    0.3527760503693842
+  ],
+  "mayor_cambio_entre_cuadros_consecutivos": {
+    "frames": [
+      148,
+      149
+    ],
+    "intervalo_s": 0.09990699300033157,
+    "desplazamiento_estimado_mm": 1148.7734878035842,
+    "rotacion_estimada_grados": 117.58907243026535
+  },
+  "observacion": "El cuadro 148 es un valor aislado. Compatible con ambigüedad PnP planar; no se guardaron esquinas ni video originales para demostrar su causa.",
+  "resultado": "Localización real conseguida; estabilidad insuficiente para una validación final.",
+  "siguiente_prueba": "Mismo ArUco de 32 mm, más cerca y menos escorzado, teléfono fijo; guardar video crudo y diagnóstico PnP."
+}

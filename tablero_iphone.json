@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "unidades": "mm",
+  "diccionario": "4x4_50",
+  "tamano_mm": [32.0, 32.0],
+  "es_ejemplo": false,
+  "convencion": "Origen en el centro del ArUco ID 0; X hacia su derecha, Y hacia su borde superior y Z hacia fuera de la pantalla. Con el teléfono horizontal y pantalla hacia arriba, Z apunta hacia arriba.",
+  "medicion": {
+    "soporte": "pantalla de iPhone",
+    "id": 0,
+    "lado_negro_mm": 32.0,
+    "fuente": "medido con regla e informado por el usuario",
+    "condicion": "Conservar el tamaño de visualización y dejar el teléfono fijo durante la localización"
+  },
+  "marcadores": {
+    "0": [[-16.0, 16.0, 0.0], [16.0, 16.0, 0.0], [16.0, -16.0, 0.0], [-16.0, -16.0, 0.0]]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "unidades": "mm",
+  "K": [
+    [
+      850.5047955206949,
+      0.0,
+      637.9314050419977
+    ],
+    [
+      0.0,
+      843.4410353770717,
+      333.5304926024767
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "dist": [
+    0.1256807117460493,
+    -0.3724295776787826,
+    0.0010810197510751109,
+    -0.005272282817914872,
+    0.39372018327915687
+  ],
+  "tamano": [
+    1280,
+    720
+  ],
+  "rms_px": 0.2782815132042828,
+  "metadatos": {
+    "origen": "captura_webcam",
+    "camara": "0",
+    "backend": "v4l2",
+    "patron": "chessboard",
+    "esquinas_interiores": [
+      9,
+      6
+    ],
+    "lado_casillero_mm": 7.4,
+    "imagenes_aceptadas": [
+      "capturas/iphone/vista_000.png",
+      "capturas/iphone/vista_001.png",
+      "capturas/iphone/vista_002.png",
+      "capturas/iphone/vista_003.png",
+      "capturas/iphone/vista_004.png",
+      "capturas/iphone/vista_005.png",
+      "capturas/iphone/vista_006.png",
+      "capturas/iphone/vista_007.png",
+      "capturas/iphone/vista_008.png",
+      "capturas/iphone/vista_009.png",
+      "capturas/iphone/vista_010.png",
+      "capturas/iphone/vista_011.png",
+      "capturas/iphone/vista_012.png",
+      "capturas/iphone/vista_013.png",
+      "capturas/iphone/vista_014.png",
+      "capturas/iphone/vista_015.png",
+      "capturas/iphone/vista_016.png",
+      "capturas/iphone/vista_017.png",
+      "capturas/iphone/vista_018.png",
+      "capturas/iphone/vista_019.png",
+      "capturas/iphone/vista_020.png",
+      "capturas/iphone/vista_021.png",
+      "capturas/iphone/vista_022.png",
+      "capturas/iphone/vista_023.png",
+      "capturas/iphone/vista_024.png"
+    ],
+    "modelo": "opencv-pinhole-5",
+    "vistas": 25,
+    "rms_por_vista_px": [
+      0.27164605259895325,
+      0.2208937704563141,
+      0.3608187437057495,
+      0.3532632887363434,
+      0.22685006260871887,
+      0.2125203013420105,
+      0.26243069767951965,
+      0.2733747959136963,
+      0.23991985619068146,
+      0.23784682154655457,
+      0.230375736951828,
+      0.1867087036371231,
+      0.157700777053833,
+      0.18882405757904053,
+      0.2621440589427948,
+      0.2639140188694,
+      0.4478016495704651,
+      0.17197032272815704,
+      0.38139989972114563,
+      0.257555216550827,
+      0.18640044331550598,
+      0.250946581363678,
+      0.28133144974708557,
+      0.3868558406829834,
+      0.38578325510025024
+    ],
+    "recomendaciones": [],
+    "diversidad": {
+      "rango_centros_normalizados": [
+        0.5104372262954712,
+        0.3126486036512587
+      ],
+      "fraccion_area_min_max": [
+        0.004933232591259488,
+        0.041444431063968445
+      ],
+      "inclinacion_min_max_grados": [
+        25.105419424717557,
+        60.13706430013235
+      ]
+    },
+    "imagen": "cruda_sin_undistort",
+    "unidades_objeto": "mm"
+  }
+}

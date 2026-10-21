@@ -1,0 +1,19 @@
+{
+  "origen": "Descargas del usuario; metadatos originales GLB",
+  "modelos": [
+    {
+      "archivo": "blue_eyes_white_dragon.glb",
+      "author": "Tigerar1 (https://sketchfab.com/allanromanreyes)",
+      "license": "SKETCHFAB Standard (https://sketchfab.com/licenses)",
+      "source": "https://sketchfab.com/3d-models/blue-eyes-white-dragon-dacd7c728e334735b0856e9ab85cbfb6",
+      "title": "Blue Eyes White Dragon"
+    },
+    {
+      "archivo": "dark_magician_yugioh.glb",
+      "author": "medothegeek (https://sketchfab.com/medothegeek)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/dark-magician-yugioh-b05a2227f5f148899cc9ae2c562fb5c8",
+      "title": "Dark magician yugioh"
+    }
+  ]
+}

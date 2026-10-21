@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="270mm" height="205mm" viewBox="0 0 270 205">
+<rect width="270" height="205" fill="white"/>
+<rect x="10" y="10" width="25" height="25" fill="black"/>
+<rect x="60" y="10" width="25" height="25" fill="black"/>
+<rect x="110" y="10" width="25" height="25" fill="black"/>
+<rect x="160" y="10" width="25" height="25" fill="black"/>
+<rect x="210" y="10" width="25" height="25" fill="black"/>
+<rect x="35" y="35" width="25" height="25" fill="black"/>
+<rect x="85" y="35" width="25" height="25" fill="black"/>
+<rect x="135" y="35" width="25" height="25" fill="black"/>
+<rect x="185" y="35" width="25" height="25" fill="black"/>
+<rect x="235" y="35" width="25" height="25" fill="black"/>
+<rect x="10" y="60" width="25" height="25" fill="black"/>
+<rect x="60" y="60" width="25" height="25" fill="black"/>
+<rect x="110" y="60" width="25" height="25" fill="black"/>
+<rect x="160" y="60" width="25" height="25" fill="black"/>
+<rect x="210" y="60" width="25" height="25" fill="black"/>
+<rect x="35" y="85" width="25" height="25" fill="black"/>
+<rect x="85" y="85" width="25" height="25" fill="black"/>
+<rect x="135" y="85" width="25" height="25" fill="black"/>
+<rect x="185" y="85" width="25" height="25" fill="black"/>
+<rect x="235" y="85" width="25" height="25" fill="black"/>
+<rect x="10" y="110" width="25" height="25" fill="black"/>
+<rect x="60" y="110" width="25" height="25" fill="black"/>
+<rect x="110" y="110" width="25" height="25" fill="black"/>
+<rect x="160" y="110" width="25" height="25" fill="black"/>
+<rect x="210" y="110" width="25" height="25" fill="black"/>
+<rect x="35" y="135" width="25" height="25" fill="black"/>
+<rect x="85" y="135" width="25" height="25" fill="black"/>
+<rect x="135" y="135" width="25" height="25" fill="black"/>
+<rect x="185" y="135" width="25" height="25" fill="black"/>
+<rect x="235" y="135" width="25" height="25" fill="black"/>
+<rect x="10" y="160" width="25" height="25" fill="black"/>
+<rect x="60" y="160" width="25" height="25" fill="black"/>
+<rect x="110" y="160" width="25" height="25" fill="black"/>
+<rect x="160" y="160" width="25" height="25" fill="black"/>
+<rect x="210" y="160" width="25" height="25" fill="black"/>
+<text x="10" y="200" font-family="sans-serif" font-size="3">TP5: 9x6 esquinas interiores; casillero 25 mm. Imprimir al 100%; medir antes de calibrar.</text>
+</svg>

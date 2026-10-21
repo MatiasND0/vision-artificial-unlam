@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<rect width="210" height="297" fill="white"/>
+<g font-family="sans-serif" font-size="4" fill="black">
+<text x="15" y="20">ArUco 4x4_50 · ID 10 · lado negro 40 mm</text>
+<text x="15" y="28">EJEMPLO: imprimir al 100 %, sin ajustar a página. Medir.</text>
+<text x="70" y="45">Borde superior hacia +Y del mundo</text>
+<path d="M105 59 L105 48 M102 52 L105 48 L108 52" stroke="black" fill="none"/>
+<rect x="85.00000" y="65.00000" width="6.66767" height="6.66767"/>
+<rect x="91.66667" y="65.00000" width="6.66767" height="6.66767"/>
+<rect x="98.33333" y="65.00000" width="6.66767" height="6.66767"/>
+<rect x="105.00000" y="65.00000" width="6.66767" height="6.66767"/>
+<rect x="111.66667" y="65.00000" width="6.66767" height="6.66767"/>
+<rect x="118.33333" y="65.00000" width="6.66767" height="6.66767"/>
+<rect x="85.00000" y="71.66667" width="6.66767" height="6.66767"/>
+<rect x="118.33333" y="71.66667" width="6.66767" height="6.66767"/>
+<rect x="85.00000" y="78.33333" width="6.66767" height="6.66767"/>
+<rect x="98.33333" y="78.33333" width="6.66767" height="6.66767"/>
+<rect x="105.00000" y="78.33333" width="6.66767" height="6.66767"/>
+<rect x="118.33333" y="78.33333" width="6.66767" height="6.66767"/>
+<rect x="85.00000" y="85.00000" width="6.66767" height="6.66767"/>
+<rect x="98.33333" y="85.00000" width="6.66767" height="6.66767"/>
+<rect x="105.00000" y="85.00000" width="6.66767" height="6.66767"/>
+<rect x="118.33333" y="85.00000" width="6.66767" height="6.66767"/>
+<rect x="85.00000" y="91.66667" width="6.66767" height="6.66767"/>
+<rect x="91.66667" y="91.66667" width="6.66767" height="6.66767"/>
+<rect x="98.33333" y="91.66667" width="6.66767" height="6.66767"/>
+<rect x="105.00000" y="91.66667" width="6.66767" height="6.66767"/>
+<rect x="118.33333" y="91.66667" width="6.66767" height="6.66767"/>
+<rect x="85.00000" y="98.33333" width="6.66767" height="6.66767"/>
+<rect x="91.66667" y="98.33333" width="6.66767" height="6.66767"/>
+<rect x="98.33333" y="98.33333" width="6.66767" height="6.66767"/>
+<rect x="105.00000" y="98.33333" width="6.66767" height="6.66767"/>
+<rect x="111.66667" y="98.33333" width="6.66767" height="6.66767"/>
+<rect x="118.33333" y="98.33333" width="6.66767" height="6.66767"/>
+<rect x="77.0000" y="57.0000" width="56.0000" height="56.0000" fill="none" stroke="#aaa" stroke-width="0.15" stroke-dasharray="2 2"/>
+<text x="15" y="250">Conservar margen blanco ≥ 8 mm. No rotar el montaje.</text>
+<line x1="20" y1="270" x2="120" y2="270" stroke="black" stroke-width="0.3"/>
+<line x1="20" y1="266" x2="20" y2="274" stroke="black" stroke-width="0.3"/>
+<line x1="120" y1="266" x2="120" y2="274" stroke="black" stroke-width="0.3"/>
+<text x="20" y="281">Control: esta línea debe medir 100 mm.</text>
+</g></svg>

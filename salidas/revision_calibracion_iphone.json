@@ -1,0 +1,253 @@
+{
+  "tipo": "revision_capturas_reales_y_validacion_cruzada",
+  "calibracion_fuente": "/home/hhouse/ws/vis/tp5/calibraciones/webcam.json",
+  "resolucion": [
+    1280,
+    720
+  ],
+  "vistas_redetectadas": 25,
+  "lado_casilla_mm": 7.4,
+  "rms_archivo_px": 0.2782815132042828,
+  "rms_redetectado_px": 0.27828146160454886,
+  "peor_vista_px": 0.44780153036117554,
+  "rango_esquinas_px": [
+    [
+      126.5215835571289,
+      271.1484375
+    ],
+    [
+      973.2329711914062,
+      665.980224609375
+    ]
+  ],
+  "fraccion_casco_esquinas_imagen": 0.29279770389103305,
+  "por_vista": [
+    {
+      "archivo": "vista_000.png",
+      "rms_reproyeccion_px": 0.271647572517395
+    },
+    {
+      "archivo": "vista_001.png",
+      "rms_reproyeccion_px": 0.2208937704563141
+    },
+    {
+      "archivo": "vista_002.png",
+      "rms_reproyeccion_px": 0.36081740260124207
+    },
+    {
+      "archivo": "vista_003.png",
+      "rms_reproyeccion_px": 0.3532627522945404
+    },
+    {
+      "archivo": "vista_004.png",
+      "rms_reproyeccion_px": 0.22685006260871887
+    },
+    {
+      "archivo": "vista_005.png",
+      "rms_reproyeccion_px": 0.212519109249115
+    },
+    {
+      "archivo": "vista_006.png",
+      "rms_reproyeccion_px": 0.2624313235282898
+    },
+    {
+      "archivo": "vista_007.png",
+      "rms_reproyeccion_px": 0.27337509393692017
+    },
+    {
+      "archivo": "vista_008.png",
+      "rms_reproyeccion_px": 0.23991982638835907
+    },
+    {
+      "archivo": "vista_009.png",
+      "rms_reproyeccion_px": 0.23784655332565308
+    },
+    {
+      "archivo": "vista_010.png",
+      "rms_reproyeccion_px": 0.23037497699260712
+    },
+    {
+      "archivo": "vista_011.png",
+      "rms_reproyeccion_px": 0.18670928478240967
+    },
+    {
+      "archivo": "vista_012.png",
+      "rms_reproyeccion_px": 0.157700777053833
+    },
+    {
+      "archivo": "vista_013.png",
+      "rms_reproyeccion_px": 0.18882405757904053
+    },
+    {
+      "archivo": "vista_014.png",
+      "rms_reproyeccion_px": 0.2621440589427948
+    },
+    {
+      "archivo": "vista_015.png",
+      "rms_reproyeccion_px": 0.26391392946243286
+    },
+    {
+      "archivo": "vista_016.png",
+      "rms_reproyeccion_px": 0.44780153036117554
+    },
+    {
+      "archivo": "vista_017.png",
+      "rms_reproyeccion_px": 0.1719701588153839
+    },
+    {
+      "archivo": "vista_018.png",
+      "rms_reproyeccion_px": 0.3814007639884949
+    },
+    {
+      "archivo": "vista_019.png",
+      "rms_reproyeccion_px": 0.25755512714385986
+    },
+    {
+      "archivo": "vista_020.png",
+      "rms_reproyeccion_px": 0.18640102446079254
+    },
+    {
+      "archivo": "vista_021.png",
+      "rms_reproyeccion_px": 0.25094664096832275
+    },
+    {
+      "archivo": "vista_022.png",
+      "rms_reproyeccion_px": 0.28132978081703186
+    },
+    {
+      "archivo": "vista_023.png",
+      "rms_reproyeccion_px": 0.38685664534568787
+    },
+    {
+      "archivo": "vista_024.png",
+      "rms_reproyeccion_px": 0.3857846260070801
+    }
+  ],
+  "validacion_cruzada_5_particiones": [
+    {
+      "particion": 0,
+      "vistas_entrenamiento": 20,
+      "vistas_reservadas": [
+        "vista_000.png",
+        "vista_005.png",
+        "vista_010.png",
+        "vista_015.png",
+        "vista_020.png"
+      ],
+      "rms_ajuste_px": 0.28704330437313746,
+      "rms_reservadas_px": [
+        0.27871981263160706,
+        0.2190297544002533,
+        0.24747206270694733,
+        0.2707892060279846,
+        0.20719021558761597
+      ],
+      "fx_px": 842.0870311562412,
+      "fy_px": 839.0259686602809,
+      "cx_px": 636.8742321053375,
+      "cy_px": 341.4350042751201
+    },
+    {
+      "particion": 1,
+      "vistas_entrenamiento": 20,
+      "vistas_reservadas": [
+        "vista_001.png",
+        "vista_006.png",
+        "vista_011.png",
+        "vista_016.png",
+        "vista_021.png"
+      ],
+      "rms_ajuste_px": 0.2747718348547088,
+      "rms_reservadas_px": [
+        0.2242213785648346,
+        0.27266818284988403,
+        0.19052818417549133,
+        0.45347902178764343,
+        0.2671264708042145
+      ],
+      "fx_px": 852.1377631743012,
+      "fy_px": 848.2715170952406,
+      "cx_px": 640.0893304026591,
+      "cy_px": 342.2391318301847
+    },
+    {
+      "particion": 2,
+      "vistas_entrenamiento": 20,
+      "vistas_reservadas": [
+        "vista_002.png",
+        "vista_007.png",
+        "vista_012.png",
+        "vista_017.png",
+        "vista_022.png"
+      ],
+      "rms_ajuste_px": 0.2807817645025747,
+      "rms_reservadas_px": [
+        0.3875267803668976,
+        0.3277665078639984,
+        0.15923310816287994,
+        0.17539437115192413,
+        0.2824772298336029
+      ],
+      "fx_px": 852.6662108749166,
+      "fy_px": 836.5324626498589,
+      "cx_px": 642.4166923402432,
+      "cy_px": 324.13911592357175
+    },
+    {
+      "particion": 3,
+      "vistas_entrenamiento": 20,
+      "vistas_reservadas": [
+        "vista_003.png",
+        "vista_008.png",
+        "vista_013.png",
+        "vista_018.png",
+        "vista_023.png"
+      ],
+      "rms_ajuste_px": 0.2639710477503287,
+      "rms_reservadas_px": [
+        0.3524754047393799,
+        0.23408234119415283,
+        0.18557386100292206,
+        0.41356492042541504,
+        0.44397884607315063
+      ],
+      "fx_px": 854.8538975818892,
+      "fy_px": 846.1935306386664,
+      "cx_px": 634.3117504475375,
+      "cy_px": 323.530961625959
+    },
+    {
+      "particion": 4,
+      "vistas_entrenamiento": 20,
+      "vistas_reservadas": [
+        "vista_004.png",
+        "vista_009.png",
+        "vista_014.png",
+        "vista_019.png",
+        "vista_024.png"
+      ],
+      "rms_ajuste_px": 0.2770828251896081,
+      "rms_reservadas_px": [
+        0.22415068745613098,
+        0.23619788885116577,
+        0.26071617007255554,
+        0.2503417730331421,
+        0.41952139139175415
+      ],
+      "fx_px": 850.9523669639732,
+      "fy_px": 844.4838282834587,
+      "cx_px": 638.1281899431119,
+      "cy_px": 329.95674360960123
+    }
+  ],
+  "rms_reservadas_max_px": 0.45347902178764343,
+  "fx_min_max_px": [
+    842.0870311562412,
+    854.8538975818892
+  ],
+  "fy_min_max_px": [
+    836.5324626498589,
+    848.2715170952406
+  ],
+  "limite": "No certifica precisión métrica. Las vistas reservadas pertenecen a la misma sesión; falta una comprobación independiente con ArUco de tamaño medido."
+}

@@ -1,0 +1,4359 @@
+{
+  "resumen": {
+    "fuente": "webcam",
+    "unidades": "mm",
+    "solo_localizacion": true,
+    "opencv": "5.0.0",
+    "resolucion": [
+      1280,
+      720
+    ],
+    "cuadros": 200,
+    "validos": 79,
+    "perdidos": 121,
+    "fps_procesamiento": 9.529426647522794,
+    "limites_sinteticos": null,
+    "max_error_posicion_mm": null,
+    "max_error_orientacion_grados": null,
+    "max_error_carta_mm": null,
+    "perdidas_esperadas": 0,
+    "falsas_validas": 0,
+    "recuperaciones": 0,
+    "cuadros_cartas_incompletas": null
+  },
+  "cuadros": [
+    {
+      "frame_id": 0,
+      "tiempo_s": 18036.627748129,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 1,
+      "tiempo_s": 18036.726129954,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 2,
+      "tiempo_s": 18036.821689108,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 3,
+      "tiempo_s": 18036.921656808,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 4,
+      "tiempo_s": 18037.018419019,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 5,
+      "tiempo_s": 18037.117585818,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 6,
+      "tiempo_s": 18037.217918051,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 7,
+      "tiempo_s": 18037.318576823,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 8,
+      "tiempo_s": 18037.417450543,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 9,
+      "tiempo_s": 18037.513718544,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 10,
+      "tiempo_s": 18037.614340143,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 11,
+      "tiempo_s": 18037.713785232,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 12,
+      "tiempo_s": 18037.813934645,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 13,
+      "tiempo_s": 18037.909085682,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 14,
+      "tiempo_s": 18038.008734001,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 15,
+      "tiempo_s": 18038.108621498,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 16,
+      "tiempo_s": 18038.209136561,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 17,
+      "tiempo_s": 18038.309616543,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 18,
+      "tiempo_s": 18038.404558592,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 19,
+      "tiempo_s": 18038.50398324,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 20,
+      "tiempo_s": 18038.605614334,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 21,
+      "tiempo_s": 18038.705411484,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 22,
+      "tiempo_s": 18038.801382821,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 23,
+      "tiempo_s": 18038.901661331,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 24,
+      "tiempo_s": 18039.001623845,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 25,
+      "tiempo_s": 18039.101328462,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 26,
+      "tiempo_s": 18039.201575899,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 27,
+      "tiempo_s": 18039.297897749,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 28,
+      "tiempo_s": 18039.397672371,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 29,
+      "tiempo_s": 18039.497741479,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 30,
+      "tiempo_s": 18039.59757124,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 31,
+      "tiempo_s": 18039.693223229,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 32,
+      "tiempo_s": 18039.792879612,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 33,
+      "tiempo_s": 18039.893119268,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 34,
+      "tiempo_s": 18039.993472131,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 35,
+      "tiempo_s": 18040.093339912,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 36,
+      "tiempo_s": 18040.188640821,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 37,
+      "tiempo_s": 18040.290014632,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 38,
+      "tiempo_s": 18040.389659659,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 39,
+      "tiempo_s": 18040.489605165,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 40,
+      "tiempo_s": 18040.585591145,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 41,
+      "tiempo_s": 18040.685658787,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 42,
+      "tiempo_s": 18040.785418721,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 43,
+      "tiempo_s": 18040.885721651,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 44,
+      "tiempo_s": 18040.985467842,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 45,
+      "tiempo_s": 18041.081438954,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 46,
+      "tiempo_s": 18041.181856092,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 47,
+      "tiempo_s": 18041.281381127,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 48,
+      "tiempo_s": 18041.380744816,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 49,
+      "tiempo_s": 18041.478845457,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 50,
+      "tiempo_s": 18041.577488906,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 51,
+      "tiempo_s": 18041.677301247,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 52,
+      "tiempo_s": 18041.777364515,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 53,
+      "tiempo_s": 18041.877516102,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 54,
+      "tiempo_s": 18041.97418705,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 55,
+      "tiempo_s": 18042.073942421,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 56,
+      "tiempo_s": 18042.173916091,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 57,
+      "tiempo_s": 18042.273674321,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 58,
+      "tiempo_s": 18042.36995984,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 59,
+      "tiempo_s": 18042.469633324,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 60,
+      "tiempo_s": 18042.569816569,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 61,
+      "tiempo_s": 18042.669642249,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 62,
+      "tiempo_s": 18042.770041581,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 63,
+      "tiempo_s": 18042.864981368,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 64,
+      "tiempo_s": 18042.965843305,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 65,
+      "tiempo_s": 18043.065716737,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 66,
+      "tiempo_s": 18043.166077169,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 67,
+      "tiempo_s": 18043.26191137,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 68,
+      "tiempo_s": 18043.362041527,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 69,
+      "tiempo_s": 18043.461742279,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 70,
+      "tiempo_s": 18043.56018791,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 71,
+      "tiempo_s": 18043.66032702,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 72,
+      "tiempo_s": 18043.7577202,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 73,
+      "tiempo_s": 18043.857290737,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 74,
+      "tiempo_s": 18043.95753345,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 75,
+      "tiempo_s": 18044.057443948,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 76,
+      "tiempo_s": 18044.154289696,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 77,
+      "tiempo_s": 18044.252598199,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 78,
+      "tiempo_s": 18044.354109136,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 79,
+      "tiempo_s": 18044.453966601,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 80,
+      "tiempo_s": 18044.553957923,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 81,
+      "tiempo_s": 18044.64973325,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 82,
+      "tiempo_s": 18044.749709334,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 83,
+      "tiempo_s": 18044.849706108,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 84,
+      "tiempo_s": 18044.9481723,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 85,
+      "tiempo_s": 18045.044302156,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 86,
+      "tiempo_s": 18045.145631278,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 87,
+      "tiempo_s": 18045.245215514,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 88,
+      "tiempo_s": 18045.345612114,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 89,
+      "tiempo_s": 18045.444991205,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 90,
+      "tiempo_s": 18045.541977161,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 91,
+      "tiempo_s": 18045.641385426,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 92,
+      "tiempo_s": 18045.740619383,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 93,
+      "tiempo_s": 18045.840303994,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 94,
+      "tiempo_s": 18045.937736346,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 95,
+      "tiempo_s": 18046.03793362,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 96,
+      "tiempo_s": 18046.138351752,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 97,
+      "tiempo_s": 18046.237930682,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 98,
+      "tiempo_s": 18046.337663324,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 99,
+      "tiempo_s": 18046.434109848,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": null,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 100,
+      "tiempo_s": 18046.534042101,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.047759692105493724,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5898505026415383,
+          0.24906692901129784,
+          -0.7681419461313161,
+          383.0186156389343
+        ],
+        [
+          0.8069959934192972,
+          0.14779919340878345,
+          -0.5717629447882354,
+          383.2655875362902
+        ],
+        [
+          -0.028876480719200404,
+          -0.9571421332804205,
+          -0.28817544232755066,
+          329.56436341852384
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 101,
+      "tiempo_s": 18046.634130293,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.021535302279875386,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5870016832210038,
+          0.25155079816825604,
+          -0.7695136255042022,
+          384.2292624450772
+        ],
+        [
+          0.8090691558857273,
+          0.14832518483047274,
+          -0.5686886147439233,
+          382.00386033132827
+        ],
+        [
+          -0.02891582421555572,
+          -0.9564109135125546,
+          -0.29058912509592616,
+          331.3560473517752
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 102,
+      "tiempo_s": 18046.734002704,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.060490770433374356,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5869212639006447,
+          0.2524422912521216,
+          -0.7692829905624126,
+          383.36691983997724
+        ],
+        [
+          0.8091029476855249,
+          0.14814570027508178,
+          -0.568687323172058,
+          381.4798749560801
+        ],
+        [
+          -0.029594763521012313,
+          -0.9562038177488024,
+          -0.2912016636194763,
+          331.1328674475428
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 103,
+      "tiempo_s": 18046.830128169,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.06671920723501862,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5874705345356469,
+          0.2531236378169109,
+          -0.7686395742028473,
+          382.86281333307284
+        ],
+        [
+          0.8086710827871564,
+          0.14784137740922487,
+          -0.5693803710961514,
+          381.9908216402109
+        ],
+        [
+          -0.03048689745201122,
+          -0.9560707877056365,
+          -0.29154621928550917,
+          331.2822743777508
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 104,
+      "tiempo_s": 18046.929657993,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.02690017893141017,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5871189183724659,
+          0.2530537495561821,
+          -0.7689311903705707,
+          383.054940251159
+        ],
+        [
+          0.8089745711125508,
+          0.14917557057268915,
+          -0.5686007320058399,
+          381.3012605364957
+        ],
+        [
+          -0.02918079817980057,
+          -0.9558820267061567,
+          -0.2922978481578681,
+          331.78773955221163
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 105,
+      "tiempo_s": 18047.029474739,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.024470768811607434,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5864193288281107,
+          0.2546642162617857,
+          -0.7689333571464818,
+          383.6222999127859
+        ],
+        [
+          0.8095016201540194,
+          0.15070411032342612,
+          -0.5674463834580699,
+          381.1837705543938
+        ],
+        [
+          -0.028626871027168543,
+          -0.9552143257339663,
+          -0.2945268988866697,
+          333.75117884479073
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 106,
+      "tiempo_s": 18047.129573136,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.03845793445562839,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5873528521663721,
+          0.2507864421821928,
+          -0.7694951510371104,
+          382.4454708159133
+        ],
+        [
+          0.8087756382525737,
+          0.14666183798723487,
+          -0.5695368927886482,
+          380.97719796902607
+        ],
+        [
+          -0.029976557860598663,
+          -0.9568680503056854,
+          -0.28897221368675985,
+          328.73197503230244
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 107,
+      "tiempo_s": 18047.229455447,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.012492635745333838,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5875152191648945,
+          0.25192051648348224,
+          -0.7690005985851516,
+          382.7631754228978
+        ],
+        [
+          0.8087015752206391,
+          0.1490023190837233,
+          -0.5690343321306102,
+          381.0927095277599
+        ],
+        [
+          -0.028768550281217775,
+          -0.9562083257754912,
+          -0.2912696486631401,
+          330.8231848756971
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 108,
+      "tiempo_s": 18047.325448488,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.028124642445884893,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5874193280472596,
+          0.2529351192638321,
+          -0.7687407615571697,
+          383.15616809035043
+        ],
+        [
+          0.8087881383604076,
+          0.15027644438400445,
+          -0.5685760613240834,
+          381.3397136728738
+        ],
+        [
+          -0.02828922558170377,
+          -0.9557409773083357,
+          -0.29284621221674534,
+          332.3596762809731
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 109,
+      "tiempo_s": 18047.425540445,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.0244184362537688,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5867502759291635,
+          0.2532546184033147,
+          -0.7691464177609111,
+          383.71846741711175
+        ],
+        [
+          0.8092996782046149,
+          0.15110268744606214,
+          -0.5676284072388242,
+          380.98251018528293
+        ],
+        [
+          -0.02753442490696456,
+          -0.9555260729587494,
+          -0.29361842473025024,
+          333.1387339519772
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 110,
+      "tiempo_s": 18047.525990366,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.028749520345763648,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5880037809957075,
+          0.2532838970418731,
+          -0.7681788991075151,
+          383.01219597109457
+        ],
+        [
+          0.8083523420192791,
+          0.15042897038991487,
+          -0.5691551774510852,
+          381.9549721806493
+        ],
+        [
+          -0.028601480498367637,
+          -0.9556246084978723,
+          -0.29319543473012966,
+          332.79190951971293
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 111,
+      "tiempo_s": 18047.62601279,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.0405921415430337,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.587843806094625,
+          0.2530143020515432,
+          -0.7683901499847298,
+          383.0075300699691
+        ],
+        [
+          0.808453637265304,
+          0.14965796776022466,
+          -0.5692145545208595,
+          381.93159466356883
+        ],
+        [
+          -0.029023714935986655,
+          -0.9558170618079856,
+          -0.29252584215426913,
+          332.22158558839124
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 112,
+      "tiempo_s": 18047.721887189,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.03770404279234875,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5876160580446367,
+          0.25017157853117605,
+          -0.7694943467130229,
+          383.3410778444354
+        ],
+        [
+          0.8086504761801125,
+          0.14849856930448213,
+          -0.569238598733606,
+          381.3400285080917
+        ],
+        [
+          -0.028138509231290187,
+          -0.9567457113620849,
+          -0.2895615100259339,
+          329.93532221453535
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 113,
+      "tiempo_s": 18047.820410485,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.02078059736896606,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5876400126584485,
+          0.25193664669714266,
+          -0.7688999555038206,
+          383.1313030959603
+        ],
+        [
+          0.8086116227701861,
+          0.14909422025573238,
+          -0.5691380825487791,
+          381.63310360653486
+        ],
+        [
+          -0.02874820070447126,
+          -0.956189750801238,
+          -0.2913326301994361,
+          331.2624560151228
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 114,
+      "tiempo_s": 18047.920279945,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.015692449555977362,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5883500237072299,
+          0.25265938001672494,
+          -0.7681194485841809,
+          383.0259245405673
+        ],
+        [
+          0.8081107653661179,
+          0.15047141273834275,
+          -0.5694869136757355,
+          382.097931781523
+        ],
+        [
+          -0.028306191956690985,
+          -0.9557832346500392,
+          -0.29270662421410854,
+          332.51967481091276
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 115,
+      "tiempo_s": 18048.020711861,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.019422748648915786,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5884765206587343,
+          0.2524329065700843,
+          -0.7680970070986928,
+          382.85239283671376
+        ],
+        [
+          0.8080134338750127,
+          0.1501846781259618,
+          -0.5697006697676525,
+          382.0644752608003
+        ],
+        [
+          -0.02845479416374047,
+          -0.9558881682167535,
+          -0.29234933650056194,
+          332.15408208593203
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 116,
+      "tiempo_s": 18048.121649262,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.04685041666703519,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5874674017627228,
+          0.25219110260891214,
+          -0.7689484375633107,
+          383.3091520080224
+        ],
+        [
+          0.8087677987554087,
+          0.15024407555663932,
+          -0.5686135466698464,
+          381.2988363928275
+        ],
+        [
+          -0.02786933014061077,
+          -0.955942658073711,
+          -0.29222753962021064,
+          331.98963490324616
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 117,
+      "tiempo_s": 18048.217513155,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.02923026694241226,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5854031499577348,
+          0.2516076952230625,
+          -0.7707118266408659,
+          384.64292423876725
+        ],
+        [
+          0.8102672186550056,
+          0.14902842701352204,
+          -0.5667958735867407,
+          380.5416352562318
+        ],
+        [
+          -0.027752232210095318,
+          -0.9562866179375373,
+          -0.2911111780075497,
+          331.39960456527047
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 118,
+      "tiempo_s": 18048.3176875,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.007921715808257852,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5874994307991553,
+          0.25379683578106005,
+          -0.768395461307646,
+          383.8247572914895
+        ],
+        [
+          0.8087519310650073,
+          0.15170061599740947,
+          -0.5682492737387599,
+          381.9642629125947
+        ],
+        [
+          -0.027653802799799065,
+          -0.9552874380277006,
+          -0.29438270658648025,
+          334.1697361333454
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 119,
+      "tiempo_s": 18048.417420341,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.008858919344569536,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5882885027819165,
+          0.2529903702000307,
+          -0.7680576215888117,
+          383.0477461398615
+        ],
+        [
+          0.8081217836700754,
+          0.14956763882464286,
+          -0.5697093155060016,
+          382.52080683879535
+        ],
+        [
+          -0.029254405693959706,
+          -0.9558375353596826,
+          -0.2924359515261773,
+          332.41051895571786
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 120,
+      "tiempo_s": 18048.517971366,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.00247052799135658,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5873693387994586,
+          0.2531934237841403,
+          -0.768693924778095,
+          383.7708170895463
+        ],
+        [
+          0.8088168569967866,
+          0.15018967275021444,
+          -0.5685581360221862,
+          382.0741902944819
+        ],
+        [
+          -0.028505292072286137,
+          -0.9556862206559472,
+          -0.2930039180151446,
+          333.03744061168663
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 121,
+      "tiempo_s": 18048.614034525,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.027286206765711116,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5868541659042859,
+          0.25366774260101316,
+          -0.7689309880115973,
+          384.2891484499304
+        ],
+        [
+          0.8091924167232802,
+          0.15036477917656665,
+          -0.5679771702284515,
+          382.13600718754293
+        ],
+        [
+          -0.028457348406379646,
+          -0.9555328929696185,
+          -0.2935082107450989,
+          333.6806473614539
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 122,
+      "tiempo_s": 18048.712331893,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.05003384973024967,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5844108975824799,
+          0.253153332793883,
+          -0.7709586842900141,
+          385.8216244261264
+        ],
+        [
+          0.8110084296174185,
+          0.15060193114087894,
+          -0.5653179507375709,
+          380.64741570270496
+        ],
+        [
+          -0.02700425663351691,
+          -0.9556319628559874,
+          -0.2933228966372786,
+          333.7300605690352
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 123,
+      "tiempo_s": 18048.812345628,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.02662479841017341,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5850300675573512,
+          0.25306764926661557,
+          -0.770517089329309,
+          385.19703162000565
+        ],
+        [
+          0.8105455369877104,
+          0.15024297521546148,
+          -0.56607683300742,
+          380.8129939235491
+        ],
+        [
+          -0.027490953478285285,
+          -0.9557111557856146,
+          -0.2930195116093455,
+          333.2502985383136
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 124,
+      "tiempo_s": 18048.913583879,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.018991490547826964,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5856157292308313,
+          0.2523522985890228,
+          -0.7703067798444192,
+          384.49560349532567
+        ],
+        [
+          0.810113656428193,
+          0.14967336636971773,
+          -0.5668454349009969,
+          380.65513249902915
+        ],
+        [
+          -0.027750339565229876,
+          -0.9559896447119044,
+          -0.29208512091104777,
+          332.1358260702518
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 125,
+      "tiempo_s": 18049.013590454,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.03594653445843341,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5861153686445457,
+          0.2520758143789271,
+          -0.7700172455496492,
+          384.4008328949151
+        ],
+        [
+          0.8097381724478444,
+          0.14921215129635734,
+          -0.5675031506400099,
+          381.19582204374126
+        ],
+        [
+          -0.028157889116428858,
+          -0.9561346755090068,
+          -0.29157094431680486,
+          331.89413728674685
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 126,
+      "tiempo_s": 18049.110057804,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.04701503853676691,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5869214256488631,
+          0.25148545118777205,
+          -0.7695961979864432,
+          384.0554053419745
+        ],
+        [
+          0.8091518958033048,
+          0.14906182004026391,
+          -0.5683782044767393,
+          381.5619213936118
+        ],
+        [
+          -0.028221439230201983,
+          -0.9563135686829748,
+          -0.2909775055233811,
+          331.43404396871085
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 127,
+      "tiempo_s": 18049.210068253,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.10001044900127454,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 128,
+      "tiempo_s": 18049.309582504,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.18714486956728837,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.582011604332194,
+          0.2610661132844857,
+          -0.7701343888680714,
+          387.2371830524554
+        ],
+        [
+          0.812733491187983,
+          0.15535109483871767,
+          -0.5615427941250825,
+          386.75953972636904
+        ],
+        [
+          -0.02695857422154374,
+          -0.9527384330585934,
+          -0.30259331362242237,
+          344.58434886580307
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 129,
+      "tiempo_s": 18049.409776192,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.2078472208794198,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5701578488671336,
+          0.25250942397298914,
+          -0.7817666008343104,
+          390.32482588576283
+        ],
+        [
+          0.8209982640592829,
+          0.14073316855077933,
+          -0.5533136774753554,
+          380.9711988554686
+        ],
+        [
+          -0.029696427173093287,
+          -0.9573051582826068,
+          -0.2875499193856019,
+          331.159715846406
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 130,
+      "tiempo_s": 18049.506362938,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.15625462235862803,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5766941236095923,
+          0.25727210462252326,
+          -0.775393417548319,
+          389.09793380936674
+        ],
+        [
+          0.8166852890640062,
+          0.15692969155645242,
+          -0.5553361239235544,
+          387.45731211298016
+        ],
+        [
+          -0.021190243523965868,
+          -0.9535114766436186,
+          -0.3006107740722228,
+          344.4980385384078
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 131,
+      "tiempo_s": 18049.606126568,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.20199378280418723,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5760859671697065,
+          0.24969541913674032,
+          -0.7783168738324202,
+          385.13724493893005
+        ],
+        [
+          0.8168510074857537,
+          0.14132111802913339,
+          -0.5592698571964207,
+          387.21033896794745
+        ],
+        [
+          -0.02965451061226765,
+          -0.9579564391250384,
+          -0.2853770676477415,
+          329.5276430334019
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 132,
+      "tiempo_s": 18049.706066025,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.048196442694991674,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5709192115822612,
+          0.25439240786735934,
+          -0.7805996135444446,
+          385.9034485141095
+        ],
+        [
+          0.820478509271156,
+          0.1427032307465652,
+          -0.5535799885822048,
+          383.78676746599496
+        ],
+        [
+          -0.029432459470299877,
+          -0.956514657887656,
+          -0.2901955195649816,
+          332.2316763241316
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 133,
+      "tiempo_s": 18049.806473562,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.10040753700013738,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 134,
+      "tiempo_s": 18049.905723445,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.11045836431912814,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.571472159990797,
+          0.2544365825708423,
+          -0.7801804892492018,
+          384.3797269703176
+        ],
+        [
+          0.8200844577383604,
+          0.142682752084758,
+          -0.5541688501111358,
+          386.99661418181984
+        ],
+        [
+          -0.029682529060581442,
+          -0.9565059632366074,
+          -0.2901987073737191,
+          332.62790699105835
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 135,
+      "tiempo_s": 18050.002035717,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.07240882425634244,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.575736292719193,
+          0.2638594318093987,
+          -0.7738901223631045,
+          383.715267304435
+        ],
+        [
+          0.8169977948465059,
+          0.14827787986170404,
+          -0.5572506380074087,
+          393.80781427373677
+        ],
+        [
+          -0.03228505013014399,
+          -0.9530959398659398,
+          -0.3009415307815704,
+          343.2750935689649
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 136,
+      "tiempo_s": 18050.102014082,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.09997836500042467,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 137,
+      "tiempo_s": 18050.201756971,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.22667004048925468,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5512812038728603,
+          0.251996484137089,
+          -0.7953532587718715,
+          390.3842700458695
+        ],
+        [
+          0.8339242328651919,
+          0.13708834718084906,
+          -0.5345812930765763,
+          378.5166769910595
+        ],
+        [
+          -0.025678942670817995,
+          -0.9579689749933287,
+          -0.28572020378954643,
+          328.4479157227923
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 138,
+      "tiempo_s": 18050.301424898,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.2740281141055423,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5617037843900081,
+          0.25372772538569527,
+          -0.787471332794118,
+          385.6746696533216
+        ],
+        [
+          0.8267986254811697,
+          0.13777365929137708,
+          -0.5453645126957857,
+          387.00752057308637
+        ],
+        [
+          -0.02988129020627639,
+          -0.9574135262132369,
+          -0.2871697204085828,
+          330.19145927731427
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 139,
+      "tiempo_s": 18050.396937537,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.148164780371268,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5538536134705877,
+          0.2577615046715121,
+          -0.7917102889031131,
+          389.5427615050469
+        ],
+        [
+          0.832053689744864,
+          0.1364668345426926,
+          -0.5376462223915045,
+          386.9219310889918
+        ],
+        [
+          -0.03054230226310023,
+          -0.9565227701311535,
+          -0.29005406046648263,
+          333.8730730218214
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 140,
+      "tiempo_s": 18050.498139718,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.16915971198340315,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5509813720661318,
+          0.2564634575258514,
+          -0.7941322450259836,
+          389.637648736414
+        ],
+        [
+          0.8340751673756087,
+          0.13825676168550882,
+          -0.5340446451520576,
+          386.59558981849113
+        ],
+        [
+          -0.027168783621527692,
+          -0.9566146365188662,
+          -0.2900867015125035,
+          333.9481383072441
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 141,
+      "tiempo_s": 18050.597986478,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.10899209913322531,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5492134401990061,
+          0.2523396063469316,
+          -0.796673910815114,
+          387.8394291862929
+        ],
+        [
+          0.8351627635280514,
+          0.13213100632819164,
+          -0.533895641097478,
+          385.6734727660731
+        ],
+        [
+          -0.02945769035346324,
+          -0.9585750467414509,
+          -0.28331276752674717,
+          327.13600883451664
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 142,
+      "tiempo_s": 18050.697982646,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.148881055026848,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5507537807471126,
+          0.2591421028044294,
+          -0.7934202187661088,
+          385.4614531864962
+        ],
+        [
+          0.8341113553747241,
+          0.13617702336329007,
+          -0.5345222774991278,
+          388.46230356704694
+        ],
+        [
+          -0.030471623319117513,
+          -0.9561909792829111,
+          -0.29115338107307864,
+          332.9084063963873
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 143,
+      "tiempo_s": 18050.797474289,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.029239128901546903,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5364276320711803,
+          0.2592163430612168,
+          -0.8031514695500941,
+          392.83035664802753
+        ],
+        [
+          0.8435244963848847,
+          0.13459507919801184,
+          -0.5199524869200135,
+          383.6881512111766
+        ],
+        [
+          -0.026679946572896518,
+          -0.9563948202210476,
+          -0.2908558548580672,
+          334.1072101546771
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 144,
+      "tiempo_s": 18050.893197812,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.17640890144437796,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5388015467718974,
+          0.25981487475334664,
+          -0.801367034543544,
+          389.64146560794484
+        ],
+        [
+          0.8419859158916234,
+          0.13510629053927958,
+          -0.5223083454214188,
+          386.747648738027
+        ],
+        [
+          -0.027433749950652786,
+          -0.9561603009504311,
+          -0.2915559436026409,
+          334.0261506658877
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 145,
+      "tiempo_s": 18050.993462276,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.10026446399933775,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 146,
+      "tiempo_s": 18051.094098547,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.13536067302145896,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.52871738854847,
+          0.26284780666341306,
+          -0.8070743172587758,
+          392.3180619488423
+        ],
+        [
+          0.8483913515281747,
+          0.13422314809937907,
+          -0.5120705626830047,
+          386.2134766227693
+        ],
+        [
+          -0.026268568645497425,
+          -0.9554554814571554,
+          -0.2939639182872479,
+          336.5118448097154
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 147,
+      "tiempo_s": 18051.194235125,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.10013657799936482,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 148,
+      "tiempo_s": 18051.290063524,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.06105866050276812,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.7355170415500427,
+          0.571279930562192,
+          0.3642168619467388,
+          -437.39257983728896
+        ],
+        [
+          0.6514436787427272,
+          0.4486660139846518,
+          0.611816918139133,
+          -406.0692340570252
+        ],
+        [
+          0.18610699883565657,
+          0.6872685420066754,
+          -0.7021581988073654,
+          365.81342246762506
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 149,
+      "tiempo_s": 18051.389970517,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.2166081205105324,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.517905701966874,
+          0.2551509332532808,
+          -0.8164996540906674,
+          394.2374196434374
+        ],
+        [
+          0.855122727192823,
+          0.1285188412716174,
+          -0.502242997837212,
+          385.6136975389627
+        ],
+        [
+          -0.023212180175681385,
+          -0.9583219233108367,
+          -0.28474600259408545,
+          329.6166537764686
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 150,
+      "tiempo_s": 18051.489795369,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.02771321369986895,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5165080000029572,
+          0.25993943710027406,
+          -0.8158743622476061,
+          392.54653711618283
+        ],
+        [
+          0.8558959223070572,
+          0.12810188398515243,
+          -0.5010310145066932,
+          387.7748334696038
+        ],
+        [
+          -0.02572267698154601,
+          -0.9570900670049016,
+          -0.28864675215469826,
+          331.9434499653218
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 151,
+      "tiempo_s": 18051.589814645,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.10001927600023919,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 152,
+      "tiempo_s": 18051.689498996,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.044944103023665964,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5147421051113177,
+          0.26389215014605255,
+          -0.8157214587816495,
+          389.62375317566523
+        ],
+        [
+          0.8568436949108758,
+          0.12581155573394154,
+          -0.499990334841868,
+          392.7003067293315
+        ],
+        [
+          -0.029316338738785752,
+          -0.956311866252374,
+          -0.2908748300349384,
+          333.1786266675725
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 153,
+      "tiempo_s": 18051.786103167,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.04854217347222057,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5052535692529003,
+          0.26497750824313054,
+          -0.8212829907422083,
+          393.2705639276616
+        ],
+        [
+          0.8625740164236568,
+          0.12620697498657707,
+          -0.48993659350521945,
+          389.3680106657895
+        ],
+        [
+          -0.026170535874637524,
+          -0.9559595805210591,
+          -0.2923292381237893,
+          334.8533855881758
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 154,
+      "tiempo_s": 18051.885790817,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.11427309954588467,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.5130349115869913,
+          0.26190070674701327,
+          -0.8174369696180512,
+          385.77765340430705
+        ],
+        [
+          0.8576543272401883,
+          0.11758585323167725,
+          -0.50060225936961,
+          394.08442323825864
+        ],
+        [
+          -0.03498906199239732,
+          -0.957904790114964,
+          -0.284945922265434,
+          326.1857035788364
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 155,
+      "tiempo_s": 18051.986176879,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.22838674415012455,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.49658157445829915,
+          0.268363071756876,
+          -0.8254622957020693,
+          396.01705234113973
+        ],
+        [
+          0.8676701431968902,
+          0.12765764359201615,
+          -0.48047065325285143,
+          388.831849734682
+        ],
+        [
+          -0.023564008852585805,
+          -0.9548218617887566,
+          -0.2962430585466057,
+          338.80546641471653
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 156,
+      "tiempo_s": 18052.086268099,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.11203097385761457,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4976308775662757,
+          0.26914349912149726,
+          -0.8245758222099742,
+          394.91828237002517
+        ],
+        [
+          0.8671006556541393,
+          0.12985341644453907,
+          -0.4809101196708624,
+          392.12797279175356
+        ],
+        [
+          -0.022359844739623935,
+          -0.9543059609571335,
+          -0.2979935741335744,
+          340.8647233760778
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 157,
+      "tiempo_s": 18052.182474362,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.18051203014475092,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4960149929950783,
+          0.26805811208985636,
+          -0.8259019162509037,
+          393.6632577276358
+        ],
+        [
+          0.8680454302433407,
+          0.12942486130525788,
+          -0.47931861669433273,
+          392.53877561267177
+        ],
+        [
+          -0.021593002518084714,
+          -0.9546696045328652,
+          -0.29688329091297305,
+          339.4344351177779
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 158,
+      "tiempo_s": 18052.282131706,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.09965734399884241,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 159,
+      "tiempo_s": 18052.382048404,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.19957404199885787,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 160,
+      "tiempo_s": 18052.482286053,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.15919458036365766,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4805485602693657,
+          0.26917346084117877,
+          -0.8346368846401542,
+          396.11280293424016
+        ],
+        [
+          0.8766324396859398,
+          0.12111100349957526,
+          -0.4656690783395466,
+          389.9413061261046
+        ],
+        [
+          -0.024262046766849454,
+          -0.9554463735920024,
+          -0.29416590604040926,
+          336.1527690320445
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 161,
+      "tiempo_s": 18052.581966937,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.11040134811766937,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4778647187480313,
+          0.2746563891630972,
+          -0.8343915019148709,
+          397.6896313135797
+        ],
+        [
+          0.8781331774411739,
+          0.12452765913205388,
+          -0.4619253021735855,
+          392.46462261525664
+        ],
+        [
+          -0.022965915024931893,
+          -0.953444665412199,
+          -0.3006922625278001,
+          342.93205821697984
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 162,
+      "tiempo_s": 18052.677659361,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.16176917534759394,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.475236567536845,
+          0.27387533011700843,
+          -0.8361474202729429,
+          397.4425632126561
+        ],
+        [
+          0.8795622579564726,
+          0.12323807673132048,
+          -0.459546092162774,
+          392.42924452381885
+        ],
+        [
+          -0.022813137756768354,
+          -0.9538368204241566,
+          -0.29945764433192523,
+          341.6145217925856
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 163,
+      "tiempo_s": 18052.777709573,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.12016538199824363,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4752178414264479,
+          0.27495548866666514,
+          -0.8358034951123756,
+          395.30988371680803
+        ],
+        [
+          0.8795882534687225,
+          0.12449716889708251,
+          -0.4591567916261872,
+          393.3005483535877
+        ],
+        [
+          -0.022192511120419256,
+          -0.9533624359018384,
+          -0.3010108939249264,
+          342.02070659281264
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 164,
+      "tiempo_s": 18052.877096129,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.18507906631050286,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4774363774578391,
+          0.27390565855829974,
+          -0.8348833425633067,
+          393.6353450390131
+        ],
+        [
+          0.8783569225970107,
+          0.1235651890340479,
+          -0.4617583356961612,
+          397.4254395238262
+        ],
+        [
+          -0.0233157029884285,
+          -0.9537857905571481,
+          -0.299581447565485,
+          341.3188424047295
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 165,
+      "tiempo_s": 18052.97782304,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.087958110050147,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4647270581171404,
+          0.2697891679997698,
+          -0.8433519824389932,
+          395.0462281228438
+        ],
+        [
+          0.884902253431541,
+          0.10789158319807712,
+          -0.4531086052446953,
+          393.40382248965915
+        ],
+        [
+          -0.031253213043922534,
+          -0.9568558988191505,
+          -0.28887718076965985,
+          330.0335116013394
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 166,
+      "tiempo_s": 18053.073390887,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.0955678469981649,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 167,
+      "tiempo_s": 18053.173798769,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.1959757289987465,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 168,
+      "tiempo_s": 18053.274394761,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.2965717209990544,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 169,
+      "tiempo_s": 18053.374497351,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.21058152007801123,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4498865121559743,
+          0.2768453578440104,
+          -0.8490929124779891,
+          398.8168857890962
+        ],
+        [
+          0.8928571171458837,
+          0.11791271049237617,
+          -0.4346294525987429,
+          391.9664852386395
+        ],
+        [
+          -0.020206299564099695,
+          -0.9536525785340084,
+          -0.3002306861620959,
+          341.089795151231
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 170,
+      "tiempo_s": 18053.474145225,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.09964787399803754,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 171,
+      "tiempo_s": 18053.56995344,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.1954560890007997,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 172,
+      "tiempo_s": 18053.670782279,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.29628492800111417,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 173,
+      "tiempo_s": 18053.770076839,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.3955794879984751,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 174,
+      "tiempo_s": 18053.868396624,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.493899272998533,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 175,
+      "tiempo_s": 18053.965719209,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.5912218580015178,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 176,
+      "tiempo_s": 18054.066108185,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.6916108340010396,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 177,
+      "tiempo_s": 18054.165987026,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.7914896750007756,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 178,
+      "tiempo_s": 18054.266113397,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.8916160459993989,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 179,
+      "tiempo_s": 18054.366104414,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.20933589514418618,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.43107890345822214,
+          0.2775794087709903,
+          -0.8585573078249371,
+          393.6239930151045
+        ],
+        [
+          0.9019329036647726,
+          0.10489693410844003,
+          -0.4189435170777571,
+          397.5792684857738
+        ],
+        [
+          -0.026230064431650713,
+          -0.9549587975619662,
+          -0.2955768574819664,
+          334.07997124561746
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 180,
+      "tiempo_s": 18054.460715127,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.2088798101431646,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4176212352574666,
+          0.267759647374624,
+          -0.8682725811056369,
+          406.25163325429844
+        ],
+        [
+          0.9084728752411388,
+          0.10578145194007349,
+          -0.40433565187421733,
+          391.905254825475
+        ],
+        [
+          -0.016417637257719775,
+          -0.9576612426444264,
+          -0.2874289573505199,
+          333.1885223924139
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 181,
+      "tiempo_s": 18054.561992978,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.20062634479296818,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4219442293365387,
+          0.2714651659969352,
+          -0.865025855671292,
+          402.15055973161293
+        ],
+        [
+          0.9064068979338735,
+          0.10553822368883115,
+          -0.4090088247440375,
+          393.5685642570569
+        ],
+        [
+          -0.019738356250892042,
+          -0.9566443158200766,
+          -0.2905891434683172,
+          333.6360662668623
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 182,
+      "tiempo_s": 18054.661994422,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.3527760503693842,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4226288344844391,
+          0.27250770278469794,
+          -0.8643635925843542,
+          398.7393839719448
+        ],
+        [
+          0.9059225593103352,
+          0.0993970011664429,
+          -0.41161213865935814,
+          393.24325005252683
+        ],
+        [
+          -0.026252329324020607,
+          -0.957005636389946,
+          -0.2888789142927156,
+          329.02181338176695
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 183,
+      "tiempo_s": 18054.762006959,
+      "valida": false,
+      "ids_usados": [],
+      "error_px": null,
+      "motivo": "Sin referencias fijas visibles",
+      "antiguedad_s": 0.10001253700102097,
+      "T_wc": null,
+      "cartas": []
+    },
+    {
+      "frame_id": 184,
+      "tiempo_s": 18054.85807616,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.1989547164140671,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.42735568800412843,
+          0.27528993438124283,
+          -0.8611518843728376,
+          395.1430508813929
+        ],
+        [
+          0.9036728812191851,
+          0.10136167714576183,
+          -0.41605424424612614,
+          394.7460575795671
+        ],
+        [
+          -0.027247746320289645,
+          -0.9560027523153736,
+          -0.2920895374468174,
+          330.2267674588452
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 185,
+      "tiempo_s": 18054.957860619,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.09448861932306385,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.428399636129856,
+          0.27539645650806144,
+          -0.8605989446348459,
+          394.50582434651915
+        ],
+        [
+          0.9031568734309464,
+          0.10104087504623926,
+          -0.417251007840997,
+          395.30961902967107
+        ],
+        [
+          -0.027953778604053126,
+          -0.9560060320482784,
+          -0.2920120767178336,
+          329.9359698743851
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 186,
+      "tiempo_s": 18055.057958922,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.14224711513412724,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.42727206165806103,
+          0.27705101021810863,
+          -0.8606284465805181,
+          395.14771721686884
+        ],
+        [
+          0.9037014837805232,
+          0.10180127823198071,
+          -0.4158847532228322,
+          395.1694990855612
+        ],
+        [
+          -0.027608215069994058,
+          -0.9554471400802143,
+          -0.29386825104660164,
+          331.5868978395504
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 187,
+      "tiempo_s": 18055.157842428,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.10150251184160124,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4265338242109825,
+          0.2762552324597875,
+          -0.8612502210986905,
+          395.26839691001277
+        ],
+        [
+          0.9040587471559602,
+          0.10145014608854541,
+          -0.4151935085588504,
+          394.34874168620274
+        ],
+        [
+          -0.027325418473465757,
+          -0.9557148708674578,
+          -0.2930228781307842,
+          330.7316410042341
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 188,
+      "tiempo_s": 18055.257761544,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.043205070524607606,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.42628387255784783,
+          0.2764954932487692,
+          -0.861296872286324,
+          395.5704586503025
+        ],
+        [
+          0.9042089713424718,
+          0.10262999070610557,
+          -0.4145759534168059,
+          394.06938610165156
+        ],
+        [
+          -0.026233492731115304,
+          -0.9555194018023834,
+          -0.29375921541007377,
+          331.5885121405512
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 189,
+      "tiempo_s": 18055.353258243,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.22085407257222583,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4276950653172896,
+          0.2757087945311714,
+          -0.8608493432194784,
+          397.203864500691
+        ],
+        [
+          0.9032309304760104,
+          0.09309133413817594,
+          -0.41893661780729347,
+          399.55292832750564
+        ],
+        [
+          -0.03536689602834103,
+          -0.9567228773926868,
+          -0.2888434152595103,
+          328.7389161243956
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 190,
+      "tiempo_s": 18055.453512639,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.1297999739968073,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.42343662811970256,
+          0.2787400779329049,
+          -0.8619776046514056,
+          399.3677348434759
+        ],
+        [
+          0.9054183253974019,
+          0.09837125644788791,
+          -0.4129657999634215,
+          396.4945508109745
+        ],
+        [
+          -0.030316299265928992,
+          -0.9553151651988061,
+          -0.29403036771734414,
+          333.5081074595289
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 191,
+      "tiempo_s": 18055.554872815,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.016379444875708495,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.42889964060454977,
+          0.2806214871268874,
+          -0.8586598157896888,
+          402.23553786593567
+        ],
+        [
+          0.9031603269714162,
+          0.11361987284327202,
+          -0.4139951065893935,
+          399.79452243407286
+        ],
+        [
+          -0.018615103388717802,
+          -0.9530698324140645,
+          -0.3021777166967389,
+          345.00418122864136
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 192,
+      "tiempo_s": 18055.653402475,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.06915621550222859,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4258359596518731,
+          0.28008106169371877,
+          -0.8603594216069743,
+          401.6114228838752
+        ],
+        [
+          0.9045526174408454,
+          0.10953005768911894,
+          -0.4120530654461068,
+          397.27101156163417
+        ],
+        [
+          -0.021173042962307986,
+          -0.9537073793062196,
+          -0.2999898946774354,
+          341.32794768711847
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 193,
+      "tiempo_s": 18055.75077153,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.025420142678191014,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.42934788359471066,
+          0.28076375060964626,
+          -0.8583892538914656,
+          398.9753385506009
+        ],
+        [
+          0.902858543834127,
+          0.10973963673090303,
+          -0.4156965984415663,
+          398.4344355699602
+        ],
+        [
+          -0.0225132111983658,
+          -0.9534825265697182,
+          -0.30060643181369906,
+          340.8828811668153
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 194,
+      "tiempo_s": 18055.850140647,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.05136157630658204,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4295141519815177,
+          0.2799012962631969,
+          -0.8585877110684614,
+          397.8538461519354
+        ],
+        [
+          0.9027656360988827,
+          0.10880476341221201,
+          -0.4161438810529264,
+          397.51496614427924
+        ],
+        [
+          -0.02306077896727482,
+          -0.9538431673021486,
+          -0.2994184574544929,
+          338.95316627636385
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 195,
+      "tiempo_s": 18055.949956201,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.13091548990151833,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4325673129510212,
+          0.27891710742653797,
+          -0.8573743447008118,
+          394.04446704221095
+        ],
+        [
+          0.9011556390559128,
+          0.1038443122383308,
+          -0.4208739395751148,
+          398.1363176433251
+        ],
+        [
+          -0.028355492661257198,
+          -0.9546840346421224,
+          -0.29626737929677016,
+          333.84674897814125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 196,
+      "tiempo_s": 18056.048567885,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.059908795665102925,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4284999452605973,
+          0.28075255320363923,
+          -0.8588165117074209,
+          394.7749170024438
+        ],
+        [
+          0.9031157899876665,
+          0.10389794131757168,
+          -0.41663783753389844,
+          395.40071342945066
+        ],
+        [
+          -0.027742869112945545,
+          -0.9541400430018687,
+          -0.2980723260448276,
+          334.6013765339066
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 197,
+      "tiempo_s": 18056.148676125,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.08884009292689939,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.43095431002069706,
+          0.2800176263047901,
+          -0.857827786699181,
+          393.924961596315
+        ],
+        [
+          0.9019625417464084,
+          0.1049737970012985,
+          -0.4188604483947944,
+          396.4414645364071
+        ],
+        [
+          -0.02723886856943719,
+          -0.9542382464048278,
+          -0.29780432021261194,
+          334.6234409506217
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 198,
+      "tiempo_s": 18056.245909346,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.0653611065109071,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.431313387408214,
+          0.27886760766613095,
+          -0.8580219223522327,
+          394.05320088415465
+        ],
+        [
+          0.9017825297498008,
+          0.10425218134725667,
+          -0.4194278862002244,
+          396.74504256761816
+        ],
+        [
+          -0.0275141941641322,
+          -0.9546540420900692,
+          -0.29644329818801907,
+          333.66853591218825
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    },
+    {
+      "frame_id": 199,
+      "tiempo_s": 18056.345995547,
+      "valida": true,
+      "ids_usados": [
+        0
+      ],
+      "error_px": 0.05601122032797668,
+      "motivo": "Referencias fijas actuales",
+      "antiguedad_s": 0.0,
+      "T_wc": [
+        [
+          -0.4294153206085147,
+          0.2779456966563499,
+          -0.8592721758191074,
+          394.98659597178306
+        ],
+        [
+          0.902698243368049,
+          0.10347185018089466,
+          -0.4176475279950564,
+          395.65472060980875
+        ],
+        [
+          -0.027172851284422372,
+          -0.9550077308223002,
+          -0.2953334898427805,
+          332.85448918890853
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "cartas": []
+    }
+  ]
+}

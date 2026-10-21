@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "unidades": "mm",
+  "es_ejemplo": true,
+  "cartas": [
+    {
+      "id": 10,
+      "nombre": "Mago Oscuro",
+      "lado_mm": 40.0,
+      "ataque": 2500,
+      "defensa": 2100,
+      "color_bgr": [
+        220,
+        80,
+        200
+      ]
+    },
+    {
+      "id": 11,
+      "nombre": "Dragón Blanco de Ojos Azules",
+      "lado_mm": 40.0,
+      "ataque": 3000,
+      "defensa": 2500,
+      "color_bgr": [
+        240,
+        220,
+        80
+      ]
+    }
+  ]
+}
