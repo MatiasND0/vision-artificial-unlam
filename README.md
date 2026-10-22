@@ -111,6 +111,36 @@ pero **requiere medir nuevamente ambos cuadrados**, porque cambia su escala de
 visualización. Su tamaño no se supone igual al de las imágenes individuales.
 El modo anterior con las teclas 1/2 sigue disponible con `--demo-yugioh`.
 
+## Combate visual entre los personajes
+
+`--combate` incluye el modo de dos marcadores. Al ver **ID 0 e ID 10** de forma
+continua durante 0,25 s, los personajes miran hacia el rival y alternan ataques:
+rayo cian del Dragón y orbe violeta del Mago, con carga, impacto, pequeños
+avances y retrocesos. Ambos comienzan con 100 de vida; el Dragón inflige 25 y
+el Mago 20 por impacto. Es una demostración visual simplificada, sin las reglas
+completas del juego de cartas.
+
+```bash
+.venv/bin/python main.py --combate --vista-externa \
+  --calibracion calibraciones/webcam.json --tablero tablero_iphone.json \
+  --lado-mago-mm 32 --camara 0 --salida salidas/demo_combate
+```
+
+**Espacio** pausa o continúa, **R** reinicia vidas y turnos, **Q** o Escape salen.
+Si falta un marcador, el combate pausa su reloj y no aplica daño; el personaje
+que siga observado puede verse en su ancla actual. Al recuperar ambos se
+comprueba otra vez la presencia antes de continuar. No se completan disparos
+con una pose guardada ni se avanza la pelea durante una interrupción larga.
+Con un solo iPhone alternando imágenes pueden verse los personajes por separado;
+para que peleen, ambos marcadores deben estar visibles al mismo tiempo.
+
+Las orientaciones y movimientos de pelea solo afectan las poses enviadas al
+render: no modifican PnP, las coordenadas medidas, el tablero ni los GLB. El
+reporte conserva las anclas originales y el estado de combate por cuadro,
+incluidas vidas, fase y puntos de ataque en la cámara actual. Las luces usan
+sprites proyectados en dos capas, con K/dist una sola vez: ataques detrás de
+los modelos e impactos delante. No calculan oclusión por objetos reales.
+
 ## Seguimiento continuo de la referencia
 
 La webcam usa por defecto el detector ArUco, una segunda búsqueda localizada

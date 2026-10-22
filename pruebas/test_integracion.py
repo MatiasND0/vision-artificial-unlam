@@ -17,6 +17,7 @@ from tp5.ar import geometria_cuadrado
 from tp5.calibracion import guardar_calibracion
 from tp5.configuracion import CARTAS
 from tp5.deteccion import Detector
+from tp5.duelo import ControlDuelo
 from tp5.modelos import Calibracion, Tablero
 from tp5.pose import EstimadorPose
 from tp5.simulador import Simulador
@@ -290,6 +291,52 @@ class IntegracionTest(unittest.TestCase):
             self.assertTrue(all(i["frame_id"] == cuadro["frame_id"] for i in cuadro["instancias_3d"]))
             self.assertNotIn(10, cuadro["ids_usados"])
             self.assertIsNone(cuadro["modelo_3d"])
+
+    @unittest.skipUnless(importlib.util.find_spec("moderngl") and importlib.util.find_spec("trimesh"),
+                         "El combate GLB requiere requirements-ar3d.txt")
+    def test_combate_no_modifica_imagen_cruda_ni_mediciones_pnp(self):
+        from tp5.activos_3d import cargar_modelo
+        from tp5.render_3d import RenderizadorModelo
+        carpeta = Path(__file__).resolve().parents[1] / "assets/modelos"
+        modelos = [cargar_modelo(carpeta / n) for n in
+                   ("blue_eyes_white_dragon.glb", "dark_magician_yugioh.glb")]
+        control = ControlDuelo(modelos)
+        render = RenderizadorModelo(self.sim.calibracion, modelos, animar=True, efectos=True)
+        self.addCleanup(render.cerrar)
+        cuadro = self.sim.generar(0)
+        original = cuadro.imagen.copy()
+        referencia, _ = procesar_cuadro(cuadro.imagen, self.sim.calibracion, self.detector,
+                                         self.estimador, 0, 0., {10: CARTAS[10]})
+        for n in range(19):
+            estado, _ = procesar_cuadro(
+                cuadro.imagen, self.sim.calibracion, self.detector, self.estimador,
+                n, n*.1, {10: CARTAS[10]}, renderizador_modelo=render,
+                modelos_por_marcador={0: 0, 10: 1}, control_duelo=control)
+            np.testing.assert_array_equal(cuadro.imagen, original)
+            np.testing.assert_allclose(estado.camara.T_wc, referencia.camara.T_wc, atol=1e-8)
+            np.testing.assert_allclose(estado.cartas[0].T_cm, referencia.cartas[0].T_cm, atol=1e-8)
+            self.assertNotIn(10, estado.camara.ids_usados)
+        self.assertEqual(estado.combate["ataque"]["tipo"], "disparo")
+        self.assertFalse(estado.combate["pausado"])
+
+    @unittest.skipUnless(importlib.util.find_spec("moderngl") and importlib.util.find_spec("trimesh"),
+                         "El combate GLB requiere requirements-ar3d.txt")
+    def test_teclas_de_combate_pausan_y_reinician_en_cli(self):
+        with tempfile.TemporaryDirectory() as temporal, ExitStack() as context:
+            args = parser_cli().parse_args([
+                "--simular", "--combate", "--vista-externa", "--frames", "3", "--salida", temporal])
+            context.enter_context(patch.dict(os.environ, {"DISPLAY": ":prueba"}))
+            for funcion in ("namedWindow", "resizeWindow", "moveWindow", "destroyAllWindows", "imshow"):
+                context.enter_context(patch(f"main.cv2.{funcion}"))
+            context.enter_context(patch("main.cv2.waitKey", side_effect=[ord(" "), ord("r"), ord("q")]))
+            context.enter_context(patch("main.cv2.getWindowProperty", return_value=1.))
+            context.enter_context(redirect_stdout(io.StringIO()))
+            self.assertEqual(ejecutar(args), 0)
+            reporte = json.loads((Path(temporal) / "reporte.json").read_text())
+        self.assertTrue(reporte["resumen"]["combate"])
+        self.assertIn("Pausa manual", reporte["cuadros"][1]["combate"]["motivo"])
+        self.assertEqual(reporte["cuadros"][2]["combate"]["tiempo_activo_s"], 0.)
+        self.assertEqual(reporte["cuadros"][2]["combate"]["vida_mago"], 100)
 
 
 if __name__ == "__main__":

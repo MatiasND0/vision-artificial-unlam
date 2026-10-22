@@ -1,14 +1,15 @@
 # TP5 — Mesa de duelo AR y localización de cámara con PnP
 
 Estado al 21 de octubre de 2026: tres frentes implementados e integrados con
-datos sintéticos. Revisión cruzada realizada, hallazgos corregidos y 88 pruebas
+datos sintéticos. Revisión cruzada realizada, hallazgos corregidos y 107 pruebas
 aprobadas. Calibración de webcam real obtenida y revisada con capturas del iPhone.
 Referencia ArUco de iPhone configurada en 32 mm. Modo de primera localización sin
 cartas y vista externa en vivo con OpenCV probados. Dos sesiones físicas revisadas:
 en la segunda no se repitió el salto grande, pero la detección sigue siendo
 intermitente. Se integraron los dos modelos GLB, recuperación visual breve,
 control de saltos, animación procedural y efectos de invocación. ID 0 y 10
-permiten mostrar Dragón y Mago simultáneamente con anclas independientes. Comparaciones
+permiten mostrar Dragón y Mago simultáneamente con anclas independientes, y
+el modo de combate añade ataques, vidas, pausa y victoria. Comparaciones
 reproducibles muestran menos interrupciones. La precisión física, las cartas
 medidas y la ventana Open3D siguen pendientes.
 
@@ -43,7 +44,7 @@ de solo lectura, sin exceder tres subagentes simultáneos.
 - Simulador con cámara móvil y verdad conocida para verificar la localización.
 - Guía de calibración, ejecución y demostración con las limitaciones observadas.
 
-Quedan para otra etapa los duelos completos, reconocimiento por la ilustración de
+Quedan para otra etapa las reglas completas del duelo, reconocimiento por la ilustración de
 la carta, oclusión realista por objetos físicos y monstruos 3D animados.
 
 ## Lo que aprovechamos de TP3
@@ -452,6 +453,38 @@ carta 1,96157 mm, dentro del límite previo de 12 mm. Total: 88 pruebas, incluid
 independencia al mover el Mago, ocultación individual y oclusión GPU compartida
 invariante al orden de entrada. No sustituye una prueba física con el nuevo ID.
 
+## Combate visual con ambos marcadores
+
+`--combate` implica `--por-marcador` y conserva los modelos y la calibración.
+`ControlDuelo` en `tp5/duelo.py` usa las dos anclas actuales para orientar a cada
+personaje hacia el rival. Sus transformaciones cosméticas se pasan únicamente
+al render; no cambian las mediciones ni la localización de cámara. Se centra
+el cuerpo principal del asset para la puesta en escena, conservando los GLB.
+
+El estado avanza por marcas de tiempo de cuadros: preparación, carga, disparo,
+impacto y respuesta del rival. Las vidas son 100/100 y el daño 25/20, aplicado
+una sola vez al llegar el disparo. Un ganador detiene los turnos; R reinicia.
+Espacio permite pausa manual. Las dos referencias deben mantenerse 0,25 s;
+ante pérdida, duplicados, cuadros viejos o un salto de tiempo se pausa sin
+emitir ataques ni descontar vida. El tiempo de ausencia no adelanta la pelea.
+
+El subagente editó exclusivamente `tp5/efectos_duelo.py` y su prueba; el
+coordinador implementó motor, contratos, integración y documentación. El HUD
+añade barras de vida, fase, motivo de pausa y victoria. Los ataques e impactos
+se proyectan desde coordenadas actuales de cámara, con K/dist una sola vez,
+en capas delante/detrás de los modelos. Son sprites luminosos sin z-buffer
+propio ni oclusión por objetos físicos. El combate simplifica las reglas.
+
+Se verificaron daño único, victoria, pausa/recuperación, reinicio, independencia
+de frecuencia de cuadros, orientación hacia el rival y conservación de anclas.
+La integración GPU comprueba que imagen cruda, cámara y carta PnP no cambian
+durante el combate. También se comprobaron las teclas con GUI simulada.
+El ensayo raster de 90 cuadros con pérdida mantuvo 81 poses válidas, 9 pérdidas
+previstas, 1 recuperación, 0 cartas faltantes y los límites geométricos previos;
+el primer impacto dejó al Mago en 75 de vida. Total: 107 pruebas aprobadas.
+La previsualización de pelea usa poses sintéticas conocidas y no es evidencia
+de precisión física de la webcam.
+
 ## Implementación y evidencia de esta entrega
 
 Se crearon los contratos antes de delegar. Los tres agentes trabajaron en sus
@@ -475,9 +508,10 @@ Verificaciones realizadas:
 .venv/bin/python calibrar.py patron --salida salidas/patron_calibracion.svg
 ```
 
-Las **88 pruebas** actuales se reparten en calibración (10), pose/simulación (17),
-visualización/AR (17), integración (11), detección (3), seguimiento (6), animación (5),
-anclas independientes (4) y render GPU (15). Cubren JSON y unidades, recuperación de
+Las **107 pruebas** actuales se reparten en calibración (10), pose/simulación (17),
+visualización/AR (17), integración (13), detección (3), seguimiento (6), animación (5),
+anclas independientes (4), render GPU (15), motor de duelo (9) y efectos de duelo (8).
+Cubren JSON y unidades, recuperación de
 intrínsecos/distorsión, resolución, transformaciones inversas, trayectoria con
 verdad conocida, cámara y cartas independientes, distorsión sobre imágenes
 crudas, rechazo de geometría físicamente inválida, pérdida y recuperación,

@@ -14,6 +14,7 @@ from tp5.anclas import crear_instancias, poses_para_render
 from tp5.calibracion import cargar_calibracion
 from tp5.configuracion import CARTAS
 from tp5.deteccion import Detector
+from tp5.duelo import ControlDuelo
 from tp5.fuentes import FuenteCamara
 from tp5.modelos import CartaConfig, EstadoMundo
 from tp5.pose import EstimadorPose, estimar_cartas
@@ -31,7 +32,7 @@ FPS_VIDEO = 10.0
 
 def procesar_cuadro(imagen, calibracion, detector, estimador, frame_id, tiempo_s,
                     cartas_config=CARTAS, *, cuadrado_ar=False, renderizador_modelo=None,
-                    modelos_por_marcador=None):
+                    modelos_por_marcador=None, control_duelo=None):
     calibracion.validar_imagen(imagen)
     detecciones = (detector.detectar(imagen, tiempo_s) if isinstance(detector, DetectorContinuo)
                    else detector.detectar(imagen))
@@ -41,14 +42,27 @@ def procesar_cuadro(imagen, calibracion, detector, estimador, frame_id, tiempo_s
     fondo = imagen
     if modelos_por_marcador is not None:
         estado.instancias_3d = crear_instancias(estado, estimador.tablero, modelos_por_marcador)
+        poses_render = poses_para_render(estado.instancias_3d, tiempo_s)
+        if control_duelo is not None:
+            from tp5.efectos_duelo import dibujar_ataques
+            duelo = control_duelo.actualizar(estado.instancias_3d, frame_id, tiempo_s)
+            estado.combate = duelo.estado
+            poses_render = duelo.poses
+            fondo = dibujar_ataques(imagen, calibracion, duelo.estado)
         if renderizador_modelo is not None:
             fondo = renderizador_modelo.dibujar_instancias(
-                imagen, poses_para_render(estado.instancias_3d, tiempo_s))
+                fondo, poses_render)
+        if control_duelo is not None:
+            fondo = dibujar_ataques(fondo, calibracion, estado.combate, frente=True)
     elif renderizador_modelo is not None:
         fondo = renderizador_modelo.dibujar(imagen, pose)
-    return estado, dibujar_ar(fondo, calibracion, estado,
+    anotada = dibujar_ar(fondo, calibracion, estado,
                              {} if modelos_por_marcador is not None else cartas_config,
                              cuadrado_ar=cuadrado_ar)
+    if estado.combate is not None:
+        from tp5.efectos_duelo import dibujar_hud
+        anotada = dibujar_hud(anotada, estado.combate)
+    return estado, anotada
 
 
 def error_transformacion(estimada, verdadera):
@@ -89,6 +103,8 @@ def parser_cli():
                          help="usar Dragón Blanco y Mago Oscuro de assets/modelos; teclas 1 y 2")
     p.add_argument("--por-marcador", action="store_true",
                    help="mostrar Dragón sobre ID 0 y Mago sobre ID 10, simultáneamente; incluye demo Yu-Gi-Oh")
+    p.add_argument("--combate", action="store_true",
+                   help="pelea visual automática con ambos marcadores; Espacio pausa, R reinicia")
     p.add_argument("--lado-mago-mm", type=float,
                    help="lado negro medido del ArUco ID 10, en mm; predeterminado 32 (40 al simular)")
     p.add_argument("--seguimiento-basico", action="store_true",
@@ -113,6 +129,8 @@ def parser_cli():
 
 
 def ejecutar(args):
+    if args.combate:
+        args.por_marcador = True
     if args.por_marcador:
         if args.modelo_3d or args.cartas:
             raise ValueError("--por-marcador usa los dos modelos incluidos y el ID 10; no combinar con --modelo-3d/--cartas")
@@ -131,6 +149,7 @@ def ejecutar(args):
     fuente = None
     visor = None
     renderizador_modelo = None
+    control_duelo = None
     video = None
     ruta_video = None
     if args.solo_localizacion and args.cartas:
@@ -203,6 +222,8 @@ def ejecutar(args):
             renderizador_modelo = RenderizadorModelo(
                 calibracion, modelos_cargados, animar=args.demo_yugioh and not args.sin_animacion,
                 efectos=args.demo_yugioh and not args.sin_efectos)
+            if args.combate:
+                control_duelo = ControlDuelo(modelos_cargados)
         visor = Visualizador3D(tablero, calibracion,
                               habilitado=not(args.sin_ventanas or args.sin_3d or args.vista_externa))
         if args.guardar_video:
@@ -238,7 +259,8 @@ def ejecutar(args):
                 imagen, calibracion, detector, estimador, frame_id, tiempo_s,
                 cartas_config, cuadrado_ar=args.cuadrado_ar,
                 renderizador_modelo=renderizador_modelo,
-                modelos_por_marcador=modelos_por_marcador)
+                modelos_por_marcador=modelos_por_marcador,
+                control_duelo=control_duelo)
             pose = estado.camara
             if args.solo_localizacion and pose.valida:
                 largo = min(np.linalg.norm(p[1] - p[0]) for p in tablero.marcadores.values()) / 2
@@ -266,6 +288,8 @@ def ejecutar(args):
                     opciones = " | ".join(f"{n+1}: {modelo.nombre}" for n, modelo in enumerate(modelos_cargados))
                     estado_ar = "anclado al marcador" if pose.valida else "oculto: mostrar ArUco"
                 mensaje = f"{nombre_modelo} ({args.tamano_modelo_mm:g} mm) | {estado_ar} | {opciones} | Q salir"
+                if args.combate:
+                    mensaje = "Combate automatico | ID 0: Dragon | ID 10: Mago | Espacio pausa | R reinicia | Q salir"
                 cv2.rectangle(anotada, (8, h-65), (w-8, h-34), (25, 25, 25), -1)
                 cv2.putText(anotada, mensaje, (15, h-44), cv2.FONT_HERSHEY_SIMPLEX,
                             .48, (220, 245, 220), 1, cv2.LINE_AA)
@@ -277,6 +301,7 @@ def ejecutar(args):
                                          "fuente": getattr(detector, "fuentes", {}).get(d.id, "aruco")}
                                         for d in estado.detecciones],
                         "seguimiento": getattr(detector, "diagnostico", None),
+                        "combate": estado.combate,
                         "pnp_diagnostico": estimador.diagnostico,
                         "modelo_3d": renderizador_modelo.modelo_actual.nombre if renderizador_modelo is not None and not args.por_marcador else None,
                         "instancias_3d": [{"marcador_id": i.marcador_id, "modelo_indice": i.modelo_indice,
@@ -319,6 +344,11 @@ def ejecutar(args):
                 tecla = cv2.waitKey(1) & 0xFF
                 if tecla in (27, ord("q")):
                     break
+                if control_duelo is not None:
+                    if tecla == ord(" "):
+                        control_duelo.alternar_pausa()
+                    elif tecla in (ord("r"), ord("R")):
+                        control_duelo.reiniciar()
                 if renderizador_modelo is not None and not args.por_marcador and ord("1") <= tecla < ord("1") + len(modelos_cargados):
                     renderizador_modelo.seleccionar(tecla - ord("1"))
                 if args.vista_externa and any(cv2.getWindowProperty(nombre, cv2.WND_PROP_VISIBLE) < 1
@@ -331,6 +361,8 @@ def ejecutar(args):
         resumen = {"fuente": "sintetica" if sim else "webcam", "unidades": "mm",
                    "solo_localizacion": args.solo_localizacion,
                    "seguimiento_continuo": seguimiento_continuo,
+                   "combate": bool(args.combate),
+                   "estado_combate": registros[-1]["combate"] if args.combate and registros else None,
                    "modelos_por_marcador": modelos_por_marcador,
                    "lado_mago_mm": lado_mago if args.por_marcador else None,
                    "medida_mago": ("opcion_cli" if args.lado_mago_mm is not None else "predeterminado_verificar_medida") if args.por_marcador else None,

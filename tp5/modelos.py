@@ -113,6 +113,7 @@ class EstadoMundo:
     cartas: list[PoseCarta] = field(default_factory=list)
     detecciones: list[Deteccion] = field(default_factory=list)  # observaciones del mismo cuadro
     instancias_3d: list[InstanciaModelo] = field(default_factory=list)
+    combate: dict[str, Any] | None = None
 
 
 @dataclass
