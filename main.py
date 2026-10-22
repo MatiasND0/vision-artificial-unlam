@@ -10,6 +10,7 @@ import cv2
 import numpy as np
 
 from tp5.ar import dibujar_ar, geometria_cuadrado
+from tp5.anclas import crear_instancias, poses_para_render
 from tp5.calibracion import cargar_calibracion
 from tp5.configuracion import CARTAS
 from tp5.deteccion import Detector
@@ -17,6 +18,7 @@ from tp5.fuentes import FuenteCamara
 from tp5.modelos import CartaConfig, EstadoMundo
 from tp5.pose import EstimadorPose, estimar_cartas
 from tp5.simulador import Simulador
+from tp5.seguimiento import DetectorContinuo
 from tp5.tablero import cargar_tablero, crear_tablero_ejemplo
 from tp5.visualizador import Visualizador3D
 
@@ -28,14 +30,24 @@ FPS_VIDEO = 10.0
 
 
 def procesar_cuadro(imagen, calibracion, detector, estimador, frame_id, tiempo_s,
-                    cartas_config=CARTAS, *, cuadrado_ar=False, renderizador_modelo=None):
+                    cartas_config=CARTAS, *, cuadrado_ar=False, renderizador_modelo=None,
+                    modelos_por_marcador=None):
     calibracion.validar_imagen(imagen)
-    detecciones = detector.detectar(imagen)
+    detecciones = (detector.detectar(imagen, tiempo_s) if isinstance(detector, DetectorContinuo)
+                   else detector.detectar(imagen))
     pose = estimador.estimar(detecciones, frame_id, tiempo_s)
     cartas = estimar_cartas(detecciones, calibracion, cartas_config, pose)
     estado = EstadoMundo(pose, cartas, detecciones)
-    fondo = renderizador_modelo.dibujar(imagen, pose) if renderizador_modelo is not None else imagen
-    return estado, dibujar_ar(fondo, calibracion, estado, cartas_config,
+    fondo = imagen
+    if modelos_por_marcador is not None:
+        estado.instancias_3d = crear_instancias(estado, estimador.tablero, modelos_por_marcador)
+        if renderizador_modelo is not None:
+            fondo = renderizador_modelo.dibujar_instancias(
+                imagen, poses_para_render(estado.instancias_3d, tiempo_s))
+    elif renderizador_modelo is not None:
+        fondo = renderizador_modelo.dibujar(imagen, pose)
+    return estado, dibujar_ar(fondo, calibracion, estado,
+                             {} if modelos_por_marcador is not None else cartas_config,
                              cuadrado_ar=cuadrado_ar)
 
 
@@ -75,6 +87,14 @@ def parser_cli():
                          help="GLB estático sobre el origen; repetir para alternar con teclas 1–9")
     modelos.add_argument("--demo-yugioh", action="store_true",
                          help="usar Dragón Blanco y Mago Oscuro de assets/modelos; teclas 1 y 2")
+    p.add_argument("--por-marcador", action="store_true",
+                   help="mostrar Dragón sobre ID 0 y Mago sobre ID 10, simultáneamente; incluye demo Yu-Gi-Oh")
+    p.add_argument("--lado-mago-mm", type=float,
+                   help="lado negro medido del ArUco ID 10, en mm; predeterminado 32 (40 al simular)")
+    p.add_argument("--seguimiento-basico", action="store_true",
+                   help="desactivar búsqueda localizada, flujo verificado y control de saltos")
+    p.add_argument("--sin-animacion", action="store_true", help="mostrar los modelos en pose estática")
+    p.add_argument("--sin-efectos", action="store_true", help="ocultar círculo de invocación y partículas")
     p.add_argument("--tamano-modelo-mm", type=float, default=90.,
                    help="mayor dimensión del modelo en mm (predeterminado: 90)")
     p.add_argument("--giro-modelo-grados", type=float, default=0.,
@@ -93,6 +113,11 @@ def parser_cli():
 
 
 def ejecutar(args):
+    if args.por_marcador:
+        if args.modelo_3d or args.cartas:
+            raise ValueError("--por-marcador usa los dos modelos incluidos y el ID 10; no combinar con --modelo-3d/--cartas")
+        args.demo_yugioh = True
+        args.solo_localizacion = True
     if args.frames < 0:
         raise ValueError("--frames debe ser >= 0")
     if args.guardar_video and not args.salida:
@@ -112,6 +137,15 @@ def ejecutar(args):
         raise ValueError("--solo-localizacion no usa --cartas; quitar una de esas opciones")
     cartas_config = {} if args.solo_localizacion else cargar_cartas(args.cartas)
     tablero = cargar_tablero(args.tablero) if args.tablero else crear_tablero_ejemplo()
+    modelos_por_marcador = None
+    if args.por_marcador:
+        if 0 not in tablero.marcadores:
+            raise ValueError("--por-marcador requiere un tablero con referencia fija ID 0")
+        lado_mago = args.lado_mago_mm if args.lado_mago_mm is not None else (40. if args.simular else 32.)
+        if not np.isfinite(lado_mago) or lado_mago <= 0:
+            raise ValueError("El lado del marcador del Mago debe ser positivo, en mm")
+        cartas_config = {10: CartaConfig(10, "Mago Oscuro", lado_mago, 2500, 2100, (220, 80, 200))}
+        modelos_por_marcador = {0: 0, 10: 1}
     if set(tablero.marcadores) & set(cartas_config):
         raise ValueError("Los IDs de cartas y tablero deben ser distintos")
     sim = None
@@ -132,8 +166,12 @@ def ejecutar(args):
             raise ValueError("Medir el tablero y marcar es_ejemplo=false antes de usar webcam")
         if args.cartas and json.loads(args.cartas.read_text(encoding="utf-8")).get("es_ejemplo", True):
             raise ValueError("Medir los marcadores de cartas y marcar es_ejemplo=false antes de usar webcam")
-    detector = Detector(tablero.diccionario)
-    estimador = EstimadorPose(tablero, calibracion)
+    seguimiento_continuo = not args.seguimiento_basico and not args.simular
+    detector = (DetectorContinuo(tablero.diccionario, ids_fijos=tablero.marcadores,
+                                 ids_moviles=cartas_config if args.por_marcador else ())
+                if seguimiento_continuo else Detector(tablero.diccionario))
+    estimador = EstimadorPose(tablero, calibracion,
+                              verificar_continuidad=seguimiento_continuo)
     limite = args.frames or (180 if args.simular else 0)
     registros = []
     posiciones, angulos, errores_cartas = [], [], []
@@ -162,7 +200,9 @@ def ejecutar(args):
             if args.demo_yugioh:
                 modelos_cargados[0].nombre = "Dragon Blanco"
                 modelos_cargados[1].nombre = "Mago Oscuro"
-            renderizador_modelo = RenderizadorModelo(calibracion, modelos_cargados)
+            renderizador_modelo = RenderizadorModelo(
+                calibracion, modelos_cargados, animar=args.demo_yugioh and not args.sin_animacion,
+                efectos=args.demo_yugioh and not args.sin_efectos)
         visor = Visualizador3D(tablero, calibracion,
                               habilitado=not(args.sin_ventanas or args.sin_3d or args.vista_externa))
         if args.guardar_video:
@@ -197,7 +237,8 @@ def ejecutar(args):
             estado, anotada = procesar_cuadro(
                 imagen, calibracion, detector, estimador, frame_id, tiempo_s,
                 cartas_config, cuadrado_ar=args.cuadrado_ar,
-                renderizador_modelo=renderizador_modelo)
+                renderizador_modelo=renderizador_modelo,
+                modelos_por_marcador=modelos_por_marcador)
             pose = estado.camara
             if args.solo_localizacion and pose.valida:
                 largo = min(np.linalg.norm(p[1] - p[0]) for p in tablero.marcadores.values()) / 2
@@ -213,9 +254,17 @@ def ejecutar(args):
                                 .48, color, grosor, cv2.LINE_AA)
             if renderizador_modelo is not None:
                 h, w = anotada.shape[:2]
-                nombre_modelo = renderizador_modelo.modelo_actual.nombre
-                opciones = " | ".join(f"{n+1}: {modelo.nombre}" for n, modelo in enumerate(modelos_cargados))
-                estado_ar = "anclado al marcador" if pose.valida else "oculto: mostrar ArUco"
+                if args.por_marcador:
+                    presentes = {i.marcador_id for i in estado.instancias_3d}
+                    nombre_modelo = "Modelos por marcador"
+                    opciones = " | ".join(f"ID {id}: {modelos_cargados[indice].nombre} "
+                                          f"{'visible' if id in presentes else 'oculto'}"
+                                          for id, indice in modelos_por_marcador.items())
+                    estado_ar = f"{len(presentes)} personajes"
+                else:
+                    nombre_modelo = renderizador_modelo.modelo_actual.nombre
+                    opciones = " | ".join(f"{n+1}: {modelo.nombre}" for n, modelo in enumerate(modelos_cargados))
+                    estado_ar = "anclado al marcador" if pose.valida else "oculto: mostrar ArUco"
                 mensaje = f"{nombre_modelo} ({args.tamano_modelo_mm:g} mm) | {estado_ar} | {opciones} | Q salir"
                 cv2.rectangle(anotada, (8, h-65), (w-8, h-34), (25, 25, 25), -1)
                 cv2.putText(anotada, mensaje, (15, h-44), cv2.FONT_HERSHEY_SIMPLEX,
@@ -224,10 +273,17 @@ def ejecutar(args):
                         "ids_usados": list(pose.ids_usados), "error_px": pose.error_px,
                         "motivo": pose.motivo, "antiguedad_s": pose.antiguedad_s,
                         "T_wc": pose.T_wc.tolist() if pose.valida else None,
-                        "detecciones": [{"id": d.id, "esquinas_px": d.esquinas.tolist()}
+                        "detecciones": [{"id": d.id, "esquinas_px": d.esquinas.tolist(),
+                                         "fuente": getattr(detector, "fuentes", {}).get(d.id, "aruco")}
                                         for d in estado.detecciones],
+                        "seguimiento": getattr(detector, "diagnostico", None),
                         "pnp_diagnostico": estimador.diagnostico,
-                        "modelo_3d": renderizador_modelo.modelo_actual.nombre if renderizador_modelo is not None else None,
+                        "modelo_3d": renderizador_modelo.modelo_actual.nombre if renderizador_modelo is not None and not args.por_marcador else None,
+                        "instancias_3d": [{"marcador_id": i.marcador_id, "modelo_indice": i.modelo_indice,
+                                          "nombre": modelos_cargados[i.modelo_indice].nombre,
+                                          "frame_id": i.frame_id, "T_cm": i.T_cm.tolist(),
+                                          "T_wm": None if i.T_wm is None else i.T_wm.tolist()}
+                                         for i in estado.instancias_3d],
                         "cartas": [{"id": c.id, "error_px": c.error_px,
                                     "T_wm": c.T_wm.tolist() if c.T_wm is not None else None} for c in estado.cartas]}
             if verdad is not None:
@@ -263,7 +319,7 @@ def ejecutar(args):
                 tecla = cv2.waitKey(1) & 0xFF
                 if tecla in (27, ord("q")):
                     break
-                if renderizador_modelo is not None and ord("1") <= tecla < ord("1") + len(modelos_cargados):
+                if renderizador_modelo is not None and not args.por_marcador and ord("1") <= tecla < ord("1") + len(modelos_cargados):
                     renderizador_modelo.seleccionar(tecla - ord("1"))
                 if args.vista_externa and any(cv2.getWindowProperty(nombre, cv2.WND_PROP_VISIBLE) < 1
                                               for nombre in ("TP5 - camara y AR (mm)", "TP5 - vista externa (mm)")):
@@ -274,6 +330,12 @@ def ejecutar(args):
         posteriores = len(registros) - iniciales
         resumen = {"fuente": "sintetica" if sim else "webcam", "unidades": "mm",
                    "solo_localizacion": args.solo_localizacion,
+                   "seguimiento_continuo": seguimiento_continuo,
+                   "modelos_por_marcador": modelos_por_marcador,
+                   "lado_mago_mm": lado_mago if args.por_marcador else None,
+                   "medida_mago": ("opcion_cli" if args.lado_mago_mm is not None else "predeterminado_verificar_medida") if args.por_marcador else None,
+                   "animacion": bool(args.demo_yugioh and not args.sin_animacion),
+                   "efectos": bool(args.demo_yugioh and not args.sin_efectos),
                    "modelos_3d": [{"nombre": m.nombre, "ruta": str(m.ruta),
                                    "tamano_mm": m.tamano_mm, "giro_grados": args.giro_modelo_grados,
                                    "atribucion": m.atribucion} for m in modelos_cargados],

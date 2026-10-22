@@ -1,6 +1,7 @@
 """Mallas AR con z-buffer EGL, sobre cámara cruda y sin corregirla dos veces.
 
-Las mallas ya están en mundo/mm. El framebuffer contiene color premultiplicado
+Las mallas están en mm, en mundo o en su ancla local según la T_cw recibida.
+El framebuffer contiene color premultiplicado
 y alfa transparente; únicamente ese overlay vuelve al dominio distorsionado.
 La iluminación es ambiental/difusa, sin el conjunto completo de materiales PBR.
 """
@@ -14,6 +15,7 @@ import cv2
 import numpy as np
 
 from .ar import _transformacion
+from .animacion import AnimadorModelo, dibujar_efectos
 from .modelos import Calibracion, PoseCamara
 
 if TYPE_CHECKING:
@@ -93,13 +95,19 @@ class RenderizadorModelo:
     Los materiales MASK descartan fragmentos antes de escribir profundidad.
     BLEND usa composición premultiplicada y orden por centro de cada parte;
     las transparencias que se intersectan no tienen orden exacto por triángulo.
+    Todas las instancias comparten framebuffer y profundidad, con su T_cw propia.
     """
-    def __init__(self, calibracion: Calibracion, modelos: Sequence[Modelo3D]):
+    def __init__(self, calibracion: Calibracion, modelos: Sequence[Modelo3D], *,
+                 animar=False, efectos=False):
         self.calibracion = calibracion
         self.modelos = tuple(modelos)
         if not self.modelos or any(not modelo.partes for modelo in self.modelos):
             raise ValueError("Se requiere al menos un modelo con mallas")
         self._indice = 0
+        self.animar = bool(animar)
+        self.efectos = bool(efectos)
+        self._inicio_tiempo = None
+        self._animadores = ([AnimadorModelo(m) for m in self.modelos] if self.animar else [])
         self._ctx = None
         self._recursos = []
         self._cerrado = False
@@ -152,7 +160,7 @@ class RenderizadorModelo:
                 or not np.isfinite(parte.alpha_corte) or not 0 <= parte.alpha_corte <= 1):
             raise ValueError("Malla, UV, textura RGBA o material inválidos")
         datos = np.ascontiguousarray(np.column_stack([vertices, normales, uv]), dtype=np.float32)
-        vbo = self._guardar(self._ctx.buffer(datos.tobytes()))
+        vbo = self._guardar(self._ctx.buffer(datos.tobytes(), dynamic=self.animar))
         ibo = self._guardar(self._ctx.buffer(np.ascontiguousarray(indices).tobytes()))
         vao = self._guardar(self._ctx.vertex_array(self._programa,
                      [(vbo, "3f 3f 2f", "posicion", "normal", "uv")], ibo, index_element_size=4))
@@ -160,7 +168,8 @@ class RenderizadorModelo:
                                              np.ascontiguousarray(textura).tobytes(), alignment=1))
         tex.build_mipmaps()
         tex.filter = (self._gl.LINEAR_MIPMAP_LINEAR, self._gl.LINEAR)
-        return {"vao": vao, "textura": tex, "color": tuple(float(c) for c in color),
+        return {"vao": vao, "vbo": vbo, "uv": uv, "textura": tex,
+                "color": tuple(float(c) for c in color),
                 "modo": parte.alpha_modo, "corte": float(parte.alpha_corte),
                 "centro": vertices.mean(axis=0)}
 
@@ -169,9 +178,12 @@ class RenderizadorModelo:
         return self.modelos[self._indice]
 
     def seleccionar(self, indice: int):
+        self._indice = self._validar_indice(indice)
+
+    def _validar_indice(self, indice):
         if not isinstance(indice, Integral) or not 0 <= indice < len(self.modelos):
             raise IndexError("Índice de modelo 3D fuera de rango")
-        self._indice = int(indice)
+        return int(indice)
 
     def _dibujar_parte(self, parte):
         self._programa["color_material"].value = parte["color"]
@@ -181,32 +193,82 @@ class RenderizadorModelo:
         parte["vao"].render(mode=self._gl.TRIANGLES)
 
     def dibujar(self, imagen: np.ndarray, pose: PoseCamara):
+        """Modo anterior: una instancia del modelo seleccionado con 1/2."""
+        return self.dibujar_instancias(imagen, [(self._indice, pose)])
+
+    def dibujar_instancias(self, imagen: np.ndarray,
+                          instancias: Sequence[tuple[int, PoseCamara]]):
+        """Renderiza una escena con z-buffer compartido y devuelve copia BGR.
+
+        Cada T_cw transforma las coordenadas del modelo/ancla a la MISMA cámara;
+        no declara que una pose de ancla sea la localización mundial de cámara.
+        Las poses inválidas se omiten; nunca se reutiliza ultima_T_wc.
+        """
         if self._cerrado:
             raise RuntimeError("El renderizador 3D está cerrado")
         self.calibracion.validar_imagen(imagen)
         if imagen.ndim != 3 or imagen.shape[2] != 3 or imagen.dtype != np.uint8:
             raise ValueError("El render 3D requiere imagen BGR uint8")
-        if not pose.valida:
+        # Completar la validación antes de modificar framebuffer, buffers o reloj.
+        observadas = []
+        instantes = []
+        for indice, pose in instancias:
+            indice = self._validar_indice(indice)
+            if not isinstance(pose, PoseCamara):
+                raise TypeError("Cada instancia requiere una PoseCamara")
+            instante = 0.
+            if self.animar or self.efectos:
+                instante = float(pose.tiempo_s)
+                if not np.isfinite(instante):
+                    raise ValueError("El cuadro debe tener un tiempo finito para animación y efectos")
+                instantes.append(instante)
+            if pose.valida:
+                T_cw = _transformacion(pose.T_cw).copy()
+                observadas.append((indice, pose, T_cw, instante))
+        if self._inicio_tiempo is None and instantes:
+            self._inicio_tiempo = min(instantes)
+        if not observadas:
             return imagen.copy()
-        T_cw = _transformacion(pose.T_cw)
         try:
+            trabajos = []
+            animaciones = {}
+            fondo = imagen
+            for indice, pose, T_cw, instante in observadas:
+                tiempo = max(0., instante-self._inicio_tiempo) if instantes else 0.
+                if self.efectos:
+                    fondo = dibujar_efectos(fondo, self.calibracion, pose,
+                                           self.modelos[indice], tiempo)
+                partes = self._partes[indice]
+                clave = (indice, tiempo)
+                if self.animar and clave not in animaciones:
+                    animaciones[clave] = []
+                    deformadas = self._animadores[indice].deformar(tiempo)
+                    for parte, (vertices, normales) in zip(partes, deformadas):
+                        datos = np.ascontiguousarray(
+                            np.column_stack([vertices, normales, parte["uv"]]), dtype=np.float32)
+                        animaciones[clave].append((datos.tobytes(), vertices.mean(axis=0)))
+                for numero, parte in enumerate(partes):
+                    datos, centro = (animaciones[clave][numero] if self.animar
+                                     else (None, parte["centro"]))
+                    profundidad = float((T_cw[:3, :3] @ centro + T_cw[:3, 3])[2])
+                    trabajos.append({"parte": parte, "T_cw": T_cw, "datos": datos,
+                                     "profundidad": profundidad, "indice": indice,
+                                     "numero": numero})
             self._fbo.use()
             self._fbo.depth_mask = True
             self._fbo.clear(0., 0., 0., 0., depth=1.)
             self._ctx.enable_only(self._gl.DEPTH_TEST | self._gl.BLEND)
             self._ctx.depth_func = "<"
             self._ctx.blend_func = self._gl.ONE, self._gl.ONE_MINUS_SRC_ALPHA
-            self._programa["T_cw"].write(np.asarray(T_cw.T, dtype=np.float32).tobytes())
-            partes = self._partes[self._indice]
-            for parte in partes:
-                if parte["modo"] != "BLEND":
-                    self._dibujar_parte(parte)
+            for trabajo in trabajos:
+                if trabajo["parte"]["modo"] != "BLEND":
+                    self._dibujar_trabajo(trabajo)
             self._fbo.depth_mask = False
-            transparentes = [p for p in partes if p["modo"] == "BLEND"]
-            transparentes.sort(key=lambda p: (T_cw[:3, :3] @ p["centro"] + T_cw[:3, 3])[2],
+            transparentes = [t for t in trabajos if t["parte"]["modo"] == "BLEND"]
+            transparentes.sort(key=lambda t: (t["profundidad"], t["indice"], t["numero"]),
                                 reverse=True)
-            for parte in transparentes:
-                self._dibujar_parte(parte)
+            for trabajo in transparentes:
+                self._dibujar_trabajo(trabajo)
             self._fbo.depth_mask = True
             ancho, alto = self.calibracion.tamano
             rgba = np.frombuffer(self._fbo.read(components=4, alignment=1), dtype=np.uint8)
@@ -215,10 +277,20 @@ class RenderizadorModelo:
                                 borderMode=cv2.BORDER_CONSTANT, borderValue=(0, 0, 0, 0))
             alfa = overlay[..., 3:4].astype(np.float32) / 255
             premultiplicado_bgr = overlay[..., :3][..., ::-1].astype(np.float32)
-            return np.uint8(np.clip(np.rint(premultiplicado_bgr + imagen * (1 - alfa)), 0, 255))
+            return np.uint8(np.clip(np.rint(premultiplicado_bgr + fondo * (1 - alfa)), 0, 255))
         except Exception as exc:
             self.cerrar()
-            raise RuntimeError(f"Falló el render 3D del modelo {self.modelo_actual.nombre}: {exc}") from exc
+            nombres = ", ".join(self.modelos[i].nombre for i in dict.fromkeys(o[0] for o in observadas))
+            raise RuntimeError(f"Falló el render 3D de las instancias {nombres}: {exc}") from exc
+
+    def _dibujar_trabajo(self, trabajo):
+        parte = trabajo["parte"]
+        if trabajo["datos"] is not None:
+            # Un mismo VAO puede aparecer con otra pose/fase en este cuadro.
+            # Escribir justo antes de dibujar evita compartir su deformación.
+            parte["vbo"].write(trabajo["datos"])
+        self._programa["T_cw"].write(np.asarray(trabajo["T_cw"].T, dtype=np.float32).tobytes())
+        self._dibujar_parte(parte)
 
     def cerrar(self):
         if self._cerrado:

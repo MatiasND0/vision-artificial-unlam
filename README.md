@@ -69,14 +69,78 @@ el frente alrededor del eje Z del marcador. La base queda a 2 mm de su plano.
 Para otros archivos, usar `--modelo-3d ruta/modelo.glb` en lugar de
 `--demo-yugioh`; repetir la opción para alternar hasta nueve modelos.
 
-El render usa ModernGL/EGL con profundidad, texturas y luz simple. Las poses
-son estáticas: no reproduce las animaciones incluidas en los GLB. La geometría
+La demo incluye aleteo procedural y flotación suave del dragón, respiración del
+Mago Oscuro, círculo de invocación y partículas. El dragón descargado **no tiene
+esqueleto ni clips**: se flexiona la zona de sus alas, respetando cuerpo y raíz.
+Los brazos mantienen la pose base del archivo; no se creó un rig completo.
+El Mago Oscuro sí trae skin, horneado en la pose de sus nodos; su clip original
+no se reproduce. `--sin-animacion` conserva la pose estática y `--sin-efectos`
+oculta el círculo y las partículas. Todo se oculta al perder una pose actual.
+
+El render usa ModernGL/EGL con profundidad, texturas y luz simple. La geometría
 se ajusta de glTF (Y arriba) al mundo del TP (Z arriba). La imagen de cámara
 permanece cruda; se aplica distorsión al overlay una sola vez para coincidir
 con los mismos K/dist de PnP. No se calcula oclusión por manos u objetos reales.
 Esta opción requiere OpenGL 3.3 con EGL; funciona aquí con Mesa Intel y no
 requiere instalar Open3D. Los créditos están en `assets/modelos/README.md` y
 se conservan también en el reporte de cada sesión.
+
+## Un marcador para cada personaje
+
+`--por-marcador` activa **ID 0 → Dragón Blanco** e **ID 10 → Mago Oscuro**.
+Pueden aparecer juntos y moverse de forma independiente. Las imágenes están
+en `assets/marcadores`; el ID 10 individual tiene el mismo lienzo y tamaño en
+píxeles que el ID 0 que se midió en el iPhone. Conservar su escala y comprobar
+que el lado negro del nuevo marcador mida **32 mm**, o indicar la medida real:
+
+```bash
+.venv/bin/python main.py --por-marcador --vista-externa \
+  --calibracion calibraciones/webcam.json --tablero tablero_iphone.json \
+  --lado-mago-mm 32 --camara 0 --salida salidas/demo_dos_marcadores
+```
+
+El ID 0 permanece como referencia fija para la cámara. El Mago sigue al ID 10,
+que puede moverse y no localiza la cámara. Si el ID 0 desaparece pero el ID 10
+sigue visible, el Mago permanece visible respecto de la cámara y se indica que
+falta la referencia mundial. Cada personaje usa su pose actual; no se conserva
+la del personaje oculto. Los modelos comparten el buffer de profundidad.
+
+Se puede alternar entre las imágenes individuales en un iPhone o mostrar ambas
+en soportes distintos. La lámina `dos_marcadores.png` permite mostrarlas juntas,
+pero **requiere medir nuevamente ambos cuadrados**, porque cambia su escala de
+visualización. Su tamaño no se supone igual al de las imágenes individuales.
+El modo anterior con las teclas 1/2 sigue disponible con `--demo-yugioh`.
+
+## Seguimiento continuo de la referencia
+
+La webcam usa por defecto el detector ArUco, una segunda búsqueda localizada
+en la imagen actual y flujo óptico verificado para pérdidas breves. El flujo
+caduca a los **0,3 s** sin una nueva decodificación; exige seguimiento de
+ida/vuelta, homografía consistente y coincidencia del patrón binario del
+marcador en la imagen nueva. No congela la pose ni promedia esquinas entre
+cuadros. En el modo de dos personajes también se recupera visualmente el ID 10,
+sin agregarlo a las referencias fijas usadas por PnP de cámara.
+
+PnP conserva los límites físicos y de reproyección. Para intervalos cortos
+también comprueba la continuidad de las ramas; si todas muestran un salto
+incompatible, declara pérdida en lugar de reutilizar la pose. Después de una
+ausencia larga permite relocalizar. `--seguimiento-basico` permite comparar
+con el detector y estimador anteriores. La simulación conserva el modo base.
+El reporte distingue `aruco`, `aruco_roi` y `flujo_verificado`, y conserva los
+candidatos PnP y los rechazos por continuidad.
+
+Sobre los mismos videos MJPEG disponibles, sin medir exactitud física:
+
+| Grabación | Cuadros con pose: base → continuo | Apariciones separadas: base → continuo |
+| --- | --- | --- |
+| Segunda prueba, 81 cuadros | 62 → 77 | 12 → 3 |
+| Prueba del cuadrado, 626 cuadros | 216 → 243 | 27 → 18 |
+
+En la segunda grabación el giro máximo entre poses adyacentes bajó de 143,81°
+a 15,22°, sin giros mayores de 45°. Esto describe estabilidad de estimaciones;
+no equivale a un error físico medido. El informe reproducible está en
+`salidas/revision_seguimiento/comparacion.json`. La recuperación sigue exigiendo
+evidencia visible: una oclusión completa o desenfoque prolongado ocultan el AR.
 
 ## Primera localización con el iPhone, sin cartas
 

@@ -13,7 +13,7 @@ el coordinador puede ajustarlos manteniendo actualizados ambos documentos.
 
 ## Proyecto y base
 
-- Trabajar en `/home/hhouse/ws/vis/tp5`.
+- Trabajar en `/home/hhouse/ws/vis/vision-artificial-unlam` (el usuario trasladó aquí el TP5).
 - Usar `/home/hhouse/ws/vis/tp3-localizacion-homografica` como base de consulta.
   Conservar ese proyecto sin modificaciones.
 - Reutilizar selectivamente detección, generación de marcadores, anotaciones y

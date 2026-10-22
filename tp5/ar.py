@@ -180,14 +180,18 @@ def dibujar_ar(imagen, calibracion: Calibracion, estado: EstadoMundo,
             _contorno(salida, cuadrado, visibles, color)
 
     estado_texto = "CAMARA LOCALIZADA" if camara.valida else "SEGUIMIENTO PERDIDO"
+    if not camara.valida and estado.instancias_3d:
+        estado_texto = "CAMARA SIN REFERENCIA FIJA | PERSONAJE VISIBLE"
     reproy = f"{camara.error_px:.3f} px" if camara.error_px is not None else "sin medicion"
     tamano = f"{calibracion.tamano[0]}x{calibracion.tamano[1]}"
     sintetica = (calibracion.metadatos.get("sintetica")
                  or calibracion.metadatos.get("origen") == "sintetica")
     origen = "SINTETICA" if sintetica else "archivo / parametros provistos"
+    objetos = (f"personajes actuales {len(estado.instancias_3d)}" if estado.instancias_3d
+               else f"cartas actuales {dibujadas}")
     lineas = [f"{estado_texto} | cuadro {camara.frame_id} | referencias {len(camara.ids_usados)} | reproy {reproy}",
               f"Calibracion {origen}: {tamano} | RMS {calibracion.rms_px:.3f} px | K/dist sobre imagen cruda",
-              f"Mundo [mm]: X derecha, Y fondo, Z arriba | cartas actuales {dibujadas}"]
+              f"Mundo [mm]: X derecha, Y fondo, Z arriba | {objetos}"]
     if camara.valida:
         x, y, z = np.asarray(camara.T_wc)[:3, 3]
         lineas.append(f"Camara en mundo: X {x:+.1f}  Y {y:+.1f}  Z {z:+.1f} mm")

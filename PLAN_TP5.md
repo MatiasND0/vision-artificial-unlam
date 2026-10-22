@@ -1,13 +1,16 @@
 # TP5 — Mesa de duelo AR y localización de cámara con PnP
 
 Estado al 21 de octubre de 2026: tres frentes implementados e integrados con
-datos sintéticos. Revisión cruzada realizada, hallazgos corregidos y 53 pruebas
+datos sintéticos. Revisión cruzada realizada, hallazgos corregidos y 88 pruebas
 aprobadas. Calibración de webcam real obtenida y revisada con capturas del iPhone.
 Referencia ArUco de iPhone configurada en 32 mm. Modo de primera localización sin
 cartas y vista externa en vivo con OpenCV probados. Dos sesiones físicas revisadas:
 en la segunda no se repitió el salto grande, pero la detección sigue siendo
-intermitente. Cuadrado AR implementado y verificado sobre la grabación existente.
-Estabilidad de detección, cartas físicas y ventana Open3D pendientes.
+intermitente. Se integraron los dos modelos GLB, recuperación visual breve,
+control de saltos, animación procedural y efectos de invocación. ID 0 y 10
+permiten mostrar Dragón y Mago simultáneamente con anclas independientes. Comparaciones
+reproducibles muestran menos interrupciones. La precisión física, las cartas
+medidas y la ventana Open3D siguen pendientes.
 
 ## Cómo vamos a trabajar
 
@@ -378,6 +381,77 @@ física. El cuadrado aparecerá intermitentemente mientras la detección lo sea.
   --camara 0 --salida salidas/prueba_cuadrado
 ```
 
+## Continuidad visual y animación de la demo GLB
+
+El proyecto fue trasladado a `/home/hhouse/ws/vis/vision-artificial-unlam`.
+Se actualizó AGENTS y se enlazó el entorno existente como `.venv`; TP3 sigue
+sin modificaciones. Los dos GLB con créditos ya estaban integrados y funcionaban.
+
+Para el problema informado de apariciones/desapariciones se creó
+`DetectorContinuo` en `tp5/seguimiento.py`. Conserva la detección normal y añade
+ROI ampliada sobre el cuadro actual y, hasta 0,3 s desde una lectura ArUco,
+flujo LK con ida/vuelta, homografía robusta y bits actuales del mismo ID. No
+retiene una pose perdida ni promedia esquinas temporales. Solo rescata las
+referencias fijas configuradas. La webcam lo activa por defecto; el modo base
+y el ensayo sintético permanecen disponibles. Se registran fuentes por detección.
+
+El control opcional de continuidad PnP, habilitado en la webcam, filtra ramas
+que exceden cambios compatibles durante intervalos ≤0,5 s. No amplía el umbral
+de reproyección ni elimina los candidatos del diagnóstico. Si ninguna rama
+cumple, declara pérdida; después de un intervalo largo permite relocalizar.
+
+Se reprocesaron los mismos videos MJPEG de Descargas, conservando las marcas de
+tiempo de los reportes: 62→77 poses/81 y 12→3 apariciones separadas en la segunda
+prueba; 216→243 poses/626 y 27→18 apariciones en la prueba del cuadrado. En esta
+última, el mayor giro adyacente bajó de 143,81° a 15,22° y desaparecieron los
+giros mayores de 45°. Son métricas de seguimiento, no exactitud física ni una
+nueva prueba de webcam. Informe: `salidas/revision_seguimiento/comparacion.json`.
+
+El subagente modificó exclusivamente `tp5/render_3d.py`, `tp5/animacion.py` y sus
+pruebas; el coordinador mantuvo detección, PnP, integración y documentación.
+El dragón no trae skin ni clips: el aleteo de sus membranas superiores es
+procedural y los brazos conservan la pose base. El mago usa respiración suave
+en lugar de reproducir su clip glTF. La demo activa animación y efectos por
+defecto: anillos y partículas métricos, distorsionados con K/dist una sola vez,
+dibujados detrás de la malla. Todo exige una pose actual. Los originales GLB
+se conservan intactos y el tiempo relativo de cuadros permite reproducir el efecto.
+
+## Dos personajes con ArUco independientes
+
+`--por-marcador` configura ID 0 → modelo 0 (Dragón Blanco) e ID 10 → modelo 1
+(Mago Oscuro). Conserva `--demo-yugioh` y sus teclas como modo anterior.
+El ID 0 sigue siendo referencia fija; el ID 10 se estima como marcador móvil
+mediante PnP individual y no interviene en la localización mundial de cámara.
+Cuando falta ID 0, el Mago puede seguir proyectándose con T_cm actual; T_wm y
+las transformaciones mundiales de cámara permanecen ausentes. La vista indica
+que falta la referencia mundial. Cada personaje desaparece solo si pierde su
+ancla actual. El rescate visual de ID 10 no lo transforma en referencia fija.
+
+`InstanciaModelo` y `EstadoMundo.instancias_3d` guardan ID, índice de modelo,
+cuadro, T_cm y T_wm opcional. `tp5/anclas.py` construye marcos locales de
+referencias fijas y poses móviles del mismo cuadro. Se guardan en el reporte.
+El subagente extendió el render y sus pruebas exclusivamente; el coordinador
+integró anclas, CLI, modelos compartidos, seguimiento, imágenes y documentación.
+`dibujar_instancias` usa un único framebuffer con profundidad compartida,
+transformación propia por personaje, animación y efectos por ancla. Los recursos
+GPU se preparan una sola vez. La selección del modo anterior no se altera.
+
+Se generaron PNG individuales ID 0 e ID 10 en `assets/marcadores`, con el mismo
+lienzo 2400×1800 y cuadrado negro 1200×1200 que el ID 0 medido por el usuario.
+El tamaño predeterminado del ID 10 es 32 mm, pendiente de comprobación en su
+soporte; `--lado-mago-mm` permite indicar otro tamaño. No se declara una nueva
+medición física: el reporte distingue valor predeterminado y opción explícita.
+La lámina doble requiere medir ambos cuadrados y actualizar la geometría fija
+si cambia su escala. Las imágenes individuales permiten alternar en el iPhone
+con la misma escala; con ambos visibles, se muestran los dos personajes.
+
+Verificación sintética completa de 90 cuadros: 81 poses de cámara válidas,
+9 pérdidas previstas, 1 recuperación y 0 cartas faltantes. El Mago se conserva
+relativo a cámara durante las pérdidas mundiales. Error máximo sintético de
+carta 1,96157 mm, dentro del límite previo de 12 mm. Total: 88 pruebas, incluidas
+independencia al mover el Mago, ocultación individual y oclusión GPU compartida
+invariante al orden de entrada. No sustituye una prueba física con el nuevo ID.
+
 ## Implementación y evidencia de esta entrega
 
 Se crearon los contratos antes de delegar. Los tres agentes trabajaron en sus
@@ -401,8 +475,9 @@ Verificaciones realizadas:
 .venv/bin/python calibrar.py patron --salida salidas/patron_calibracion.svg
 ```
 
-Las **53 pruebas** actuales se reparten en calibración (10), pose/simulación (15),
-visualización/AR (17), integración (8) y detección (3). Cubren JSON y unidades, recuperación de
+Las **88 pruebas** actuales se reparten en calibración (10), pose/simulación (17),
+visualización/AR (17), integración (11), detección (3), seguimiento (6), animación (5),
+anclas independientes (4) y render GPU (15). Cubren JSON y unidades, recuperación de
 intrínsecos/distorsión, resolución, transformaciones inversas, trayectoria con
 verdad conocida, cámara y cartas independientes, distorsión sobre imágenes
 crudas, rechazo de geometría físicamente inválida, pérdida y recuperación,

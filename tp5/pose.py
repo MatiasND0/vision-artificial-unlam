@@ -65,12 +65,13 @@ def _resolver(objeto, imagen, calibracion, metodo, refinar=True):
 
 
 class EstimadorPose:
-    def __init__(self, tablero, calibracion, error_max_px=3.0):
+    def __init__(self, tablero, calibracion, error_max_px=3.0, *, verificar_continuidad=False):
         if not np.isfinite(error_max_px) or error_max_px <= 0:
             raise ValueError("El límite de reproyección debe ser positivo")
         self.tablero = tablero
         self.calibracion = calibracion
         self.error_max_px = float(error_max_px)
+        self.verificar_continuidad = bool(verificar_continuidad)
         self._ultima_T_wc = None
         self._ultimo_tiempo = None
         self.diagnostico = self._nuevo_diagnostico(None)
@@ -133,6 +134,28 @@ class EstimadorPose:
         aceptables = [c for c in candidatos if c[2] <= self.error_max_px]
         if not aceptables:
             return self._perdida(frame_id, tiempo_s, "Reproyección excede el límite por esquina", ids, candidatos[0][1])
+        dt = None if self._ultimo_tiempo is None else tiempo_s - self._ultimo_tiempo
+        if (self.verificar_continuidad and self._ultima_T_wc is not None
+                and dt is not None and 0 < dt <= .5):
+            anterior = invertir_transformacion(self._ultima_T_wc)
+            limite_giro = 10. + 120. * dt
+            limite_distancia = 25. + 1200. * dt
+            continuas, rechazados = [], []
+            for c in aceptables:
+                R = anterior[:3, :3].T @ c[0][:3, :3]
+                giro = float(np.degrees(np.arccos(np.clip((np.trace(R)-1)/2, -1, 1))))
+                distancia = float(np.linalg.norm(c[0][:3, 3] - anterior[:3, 3]))
+                if giro <= limite_giro and distancia <= limite_distancia:
+                    continuas.append(c)
+                else:
+                    rechazados.append({"indice": next(i for i, v in enumerate(candidatos) if v is c),
+                                        "giro_grados": giro, "distancia_mm": distancia})
+            self.diagnostico["continuidad"] = {"delta_t_s": float(dt),
+                "limite_giro_grados": limite_giro, "limite_distancia_mm": limite_distancia,
+                "rechazados": rechazados}
+            aceptables = continuas
+            if not aceptables:
+                return self._perdida(frame_id, tiempo_s, "Salto de pose sin confirmar", ids)
         mejor_error = aceptables[0][1]
         cercanas = [c for c in aceptables if c[1] <= mejor_error + 0.05]
         criterio = "menor_rms"

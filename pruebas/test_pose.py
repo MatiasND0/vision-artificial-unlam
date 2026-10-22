@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import cv2
 import numpy as np
@@ -39,6 +40,37 @@ class PruebasPose(unittest.TestCase):
         np.testing.assert_allclose(transformar_puntos(cuadro.T_wc, transformar_puntos(cuadro.T_cw, puntos)), puntos, atol=1e-10)
         with self.assertRaises(ValueError):
             invertir_transformacion(np.diag([2., 1, 1, 1]))
+
+    def test_control_de_saltos_prefiere_rama_actual_compatible(self):
+        estimador = EstimadorPose(self.sim.tablero, self.sim.calibracion,
+                                   verificar_continuidad=True)
+        cuadro = self.sim.generar(0)
+        inicial = estimador.estimar(cuadro.detecciones, 0, 0.)
+        self.assertTrue(inicial.valida)
+        salto = inicial.T_cw.copy()
+        salto[:3, :3] = salto[:3, :3] @ cv2.Rodrigues(np.array([0., 0., 1.5]))[0]
+        candidatos = [(salto, .01, .02), (inicial.T_cw.copy(), .2, .3)]
+        with patch("tp5.pose._resolver", return_value=candidatos):
+            actual = estimador.estimar(cuadro.detecciones, 1, .1)
+        self.assertTrue(actual.valida)
+        np.testing.assert_allclose(actual.T_cw, inicial.T_cw)
+        self.assertEqual(len(estimador.diagnostico["continuidad"]["rechazados"]), 1)
+
+    def test_salto_aislado_no_reemplaza_pose_y_relocaliza_despues(self):
+        estimador = EstimadorPose(self.sim.tablero, self.sim.calibracion,
+                                   verificar_continuidad=True)
+        cuadro = self.sim.generar(0)
+        inicial = estimador.estimar(cuadro.detecciones, 0, 0.)
+        salto = inicial.T_cw.copy()
+        salto[:3, :3] = salto[:3, :3] @ cv2.Rodrigues(np.array([0., 0., 1.5]))[0]
+        with patch("tp5.pose._resolver", return_value=[(salto, .01, .02)]):
+            perdida = estimador.estimar(cuadro.detecciones, 1, .1)
+            relocalizada = estimador.estimar(cuadro.detecciones, 2, .7)
+        self.assertFalse(perdida.valida)
+        self.assertIsNone(perdida.T_cw)
+        np.testing.assert_allclose(perdida.ultima_T_wc, inicial.T_wc)
+        self.assertTrue(relocalizada.valida)
+        np.testing.assert_allclose(relocalizada.T_cw, salto)
 
     def test_pose_exacta_con_camara_movil(self):
         for frame in [0, 30, 90, 180, 300, 550]:

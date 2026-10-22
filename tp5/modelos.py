@@ -98,10 +98,21 @@ class PoseCarta:
 
 
 @dataclass
+class InstanciaModelo:
+    marcador_id: int
+    modelo_indice: int
+    frame_id: int
+    T_cm: np.ndarray
+    error_px: float
+    T_wm: np.ndarray | None = None
+
+
+@dataclass
 class EstadoMundo:
     camara: PoseCamara
     cartas: list[PoseCarta] = field(default_factory=list)
     detecciones: list[Deteccion] = field(default_factory=list)  # observaciones del mismo cuadro
+    instancias_3d: list[InstanciaModelo] = field(default_factory=list)
 
 
 @dataclass

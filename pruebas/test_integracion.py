@@ -20,6 +20,7 @@ from tp5.deteccion import Detector
 from tp5.modelos import Calibracion, Tablero
 from tp5.pose import EstimadorPose
 from tp5.simulador import Simulador
+from tp5.seguimiento import DetectorContinuo
 from tp5.tablero import esquinas_cuadrado, guardar_tablero
 from tp5.visualizador import Visualizador3D
 
@@ -91,6 +92,28 @@ class IntegracionTest(unittest.TestCase):
         imagen = np.zeros((360, 640, 3), dtype=np.uint8)
         with self.assertRaisesRegex(ValueError, "Resolución"):
             procesar_cuadro(imagen, self.sim.calibracion, self.detector, self.estimador, 0, 0.)
+
+    def test_recuperacion_visual_entrega_pose_actual_y_respeta_ocultacion(self):
+        detector = DetectorContinuo(ids_fijos=self.sim.tablero.marcadores)
+        cuadro = self.sim.generar(0)
+        inicial, _ = procesar_cuadro(cuadro.imagen, self.sim.calibracion,
+                                     detector, self.estimador, 0, 0., {})
+        self.assertTrue(inicial.camara.valida)
+        siguiente = self.sim.generar(1)
+        with patch.object(Detector, "detectar", return_value=[]):
+            actual, _ = procesar_cuadro(siguiente.imagen, self.sim.calibracion,
+                                        detector, self.estimador, 1, .1, {})
+        self.assertTrue(actual.camara.valida, actual.camara.motivo)
+        self.assertEqual(actual.camara.frame_id, 1)
+        self.assertTrue(all(d.id in self.sim.tablero.marcadores for d in actual.detecciones))
+        self.assertTrue(all(v in ("aruco_roi", "flujo_verificado") for v in detector.fuentes.values()))
+        ep, ea = error_transformacion(actual.camara.T_wc, siguiente.T_wc)
+        self.assertLess(ep, 5.)
+        self.assertLess(ea, 1.)
+        perdida, _ = procesar_cuadro(np.full_like(cuadro.imagen, 255), self.sim.calibracion,
+                                     detector, self.estimador, 2, .2, {})
+        self.assertFalse(perdida.camara.valida)
+        self.assertIsNone(perdida.camara.T_cw)
 
     def test_cuadrado_anclado_a_mundo_se_oculta_y_recupera(self):
         referencia = EstimadorPose(self.sim.tablero, self.sim.calibracion)
@@ -248,6 +271,25 @@ class IntegracionTest(unittest.TestCase):
                    if llamada.args[0] == "TP5 - camara y AR (mm)"]
         self.assertEqual(len(camaras), 3)
         self.assertGreater(np.count_nonzero(camaras[0][150:600] != camaras[1][150:600]), 100)
+
+    @unittest.skipUnless(importlib.util.find_spec("moderngl") and importlib.util.find_spec("trimesh"),
+                         "La demo GLB requiere requirements-ar3d.txt")
+    def test_demo_por_marcador_guarda_dos_anclas_y_no_localiza_con_mago(self):
+        with tempfile.TemporaryDirectory() as temporal, redirect_stdout(io.StringIO()):
+            args = parser_cli().parse_args([
+                "--simular", "--por-marcador", "--sin-ventanas", "--frames", "3",
+                "--salida", temporal])
+            self.assertEqual(ejecutar(args), 0)
+            reporte = json.loads((Path(temporal) / "reporte.json").read_text())
+        self.assertEqual(reporte["resumen"]["modelos_por_marcador"], {"0": 0, "10": 1})
+        self.assertEqual(reporte["resumen"]["lado_mago_mm"], 40.)
+        for cuadro in reporte["cuadros"]:
+            self.assertEqual([i["marcador_id"] for i in cuadro["instancias_3d"]], [0, 10])
+            self.assertEqual([i["nombre"] for i in cuadro["instancias_3d"]],
+                             ["Dragon Blanco", "Mago Oscuro"])
+            self.assertTrue(all(i["frame_id"] == cuadro["frame_id"] for i in cuadro["instancias_3d"]))
+            self.assertNotIn(10, cuadro["ids_usados"])
+            self.assertIsNone(cuadro["modelo_3d"])
 
 
 if __name__ == "__main__":
